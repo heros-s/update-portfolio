@@ -3,7 +3,7 @@ import projectsData from "../data/projects.json"
 import { ProjectPageClient } from './ProjectPageClient'
 import type { Metadata } from 'next'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://herosdinao.vercel.app'
 
 interface ProjectPageProps {
   params: Promise<{ slug: string; locale: string }>
