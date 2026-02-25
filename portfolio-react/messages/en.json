@@ -1,0 +1,507 @@
+{
+  "nav": {
+    "brand": "Heros.dev",
+    "projects": "Projects",
+    "about": "About",
+    "skills": "Skills",
+    "contact": "Contact",
+    "cta": "Get in touch",
+    "home": "Home",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "brandName": "Heros Dinão"
+  },
+  "hero": {
+    "title": "I transform manual processes and messy data into",
+    "titleHighlight": "automated decision-making systems",
+    "subtitle": "Automation, Business Intelligence, and Data Engineering applied to real business problems.",
+    "ctaPrimary": "View projects",
+    "ctaSecondary": "Contact me"
+  },
+  "projects": {
+    "sectionTitle": "Selected Projects",
+    "sectionSubtitle": "Real-world cases focused on operational efficiency",
+    "filters": {
+      "all": "All",
+      "automation": "Automation",
+      "bi": "BI & Analytics",
+      "dataEngineering": "Data Engineering"
+    },
+    "viewCase": "View full case →",
+    "items": {
+      "pjt1": {
+        "title": "Overtime Approval Automation",
+        "subtitle": "n8n + Slack workflow reducing 2h/day of manual HR work",
+        "category": "automation",
+        "tags": [
+          "n8n",
+          "Slack",
+          "JavaScript",
+          "APIs"
+        ],
+        "problem": "HR manually processed around 300 overtime records per month, checking each one to verify if tickets had been opened and individually following up with employees and managers. This process consumed approximately 2 hours daily, limiting the team's strategic activities.",
+        "solution": "I developed an automated workflow in n8n that runs daily, consuming the time tracking report, identifying employees with overtime, verifying the existence of corresponding tickets, and sending direct messages via Slack to employees (when ticket wasn't opened) and managers (when pending approval). The bot has its own persona named Isadora, making communication more natural.",
+        "impact": [
+          "Saved ~2 hours per day (~10h/week, ~40h/month)",
+          "Almost complete elimination of repetitive manual work",
+          "HR freed up for more strategic activities",
+          "Standardized process with higher reliability",
+          "Increased response rate from involved parties"
+        ],
+        "techStack": [
+          "n8n",
+          "JavaScript",
+          "Google Sheets",
+          "Slack API",
+          "Ticketing System"
+        ],
+        "challenges": [
+          "Development of fallback logic for missing IDs",
+          "Dynamic message formatting based on hours/minutes quantity",
+          "Data normalization and treatment from time tracking reports",
+          "Integration between multiple systems (time tracking, tickets, Slack)"
+        ],
+        "metrics": {
+          "timeSaved": { "label": "Time Saved", "value": "~2 hours/day" },
+          "weekly": { "label": "Weekly", "value": "~10 hours/week" },
+          "monthly": { "label": "Monthly", "value": "~40 hours/month" }
+        },
+        "categories": ["Automation", "Data Engineering"],
+        "funFact": "This was the first automation project with a persona implemented at the company, using an agent that interacts as a real employee."
+      },
+      "pjt2": {
+        "title": "Financial Performance Dashboard",
+        "subtitle": "Financial KPIs with analytical modeling replacing manual Excel analysis",
+        "category": "bi",
+        "tags": [
+          "Power BI",
+          "DAX",
+          "Data Modeling",
+          "FP&A"
+        ],
+        "problem": "The company monthly extracted a financial report in CSV from the ERP with metrics like gross revenue, gross profit, net profit, COGS, and operating expenses. However, the data was raw, without organization, comparative calculations, or indicators to facilitate decision-making. The process was completely manual, unstandardized, and consumed significant management time.",
+        "solution": "I developed a strategic financial dashboard in Power BI that transforms raw data into actionable information. The solution includes automated metrics, period-over-period comparisons (MoM), strategic visualizations focused on performance, and an intuitive interface designed for recurring use. I used dynamic parameters for metric control, line charts with dynamic indicator selection, and a structured financial funnel for strategic reading.",
+        "impact": [
+          "Significant reduction in monthly financial analysis time",
+          "Faster and clearer decisions based on processed data",
+          "Complete standardization of monthly analysis",
+          "Total replacement of manual raw Excel",
+          "Dashboard actively used by the board"
+        ],
+        "techStack": [
+          "Power BI",
+          "DAX",
+          "Data Modeling",
+          "SQL",
+          "Excel"
+        ],
+        "challenges": [
+          "Creation of fully dynamic table controlled by user",
+          "Building multi-stage financial funnel",
+          "Modeling to enable period-over-period comparisons",
+          "Automated calculation of metrics like EBITDA and margins"
+        ],
+        "keyMetrics": [
+          "EBITDA",
+          "MoM Variation",
+          "Financial Funnel",
+          "Gross Profit vs COGS",
+          "Revenue over months",
+          "Margin calculations"
+        ],
+        "metrics": {
+          "timeSaved": { "label": "Time Reduction", "value": "1h 30m" },
+          "analysisSpeed": { "label": "Analysis Speed", "value": "Drastic reduction" },
+          "status": { "label": "Status", "value": "Actively used by the board" }
+        },
+        "categories": ["BI"]
+      },
+      "pjt3": {
+        "title": "Automated Data Pipeline for Mailing Campaigns",
+        "subtitle": "Automated ETL reducing execution time by 57% and increasing efficiency by 27%",
+        "category": "dataEngineering",
+        "tags": [
+          "Python",
+          "PostgreSQL",
+          "ETL",
+          "SFTP",
+          "Pandas"
+        ],
+        "problem": "Mailing campaigns required that every hour from 08:00 to 20:00 (Monday to Saturday), someone would execute queries in PostgreSQL, wait for completion, export results to CSV, and import files to the dialer via SFTP. This process presented high risk of human error, campaign delays, and total dependence on technical operators. The project emerged during my area transition, requiring a solution that completely eliminated human execution.",
+        "solution": "I developed an automated data pipeline that runs hourly: executes SQL queries in PostgreSQL, exports results to CSV, dynamically names files with date/time, automatically sends via SFTP to mapped folders, and the dialer automatically starts the campaign upon file detection. The process runs completely headless, without human intervention.",
+        "impact": [
+          "Reduced execution time from 15-20 min → ~7 min per cycle (57% faster)",
+          "Complete elimination of recurring manual work",
+          "Fewer stopped campaigns",
+          "Less idle time for robocall AIs",
+          "Up to 27% increase in campaign efficiency",
+          "Direct improvement in conversion rates and deals/base"
+        ],
+        "techStack": [
+          "Python",
+          "psycopg3",
+          "paramiko",
+          "pandas",
+          "PostgreSQL",
+          "SFTP",
+          "Windows Task Scheduler"
+        ],
+        "challenges": [
+          "Learning and implementing Python integrations with PostgreSQL and SFTP",
+          "Working around internal limitations (GPO)",
+          "Ensuring stability and fault tolerance for connection failures",
+          "Creating robust solution without dedicated infrastructure (running on local machine)"
+        ],
+        "architecture": [
+          "PostgreSQL → SQL Query",
+          "Python Script → Data Processing",
+          "CSV exported with dynamic naming",
+          "Folder mapped via SFTP",
+          "Dialer detects file and automatically starts campaign"
+        ],
+        "metrics": {
+          "timeSaved": { "label": "Time Reduction", "value": "15-20 min → ~7 min per cycle" },
+          "efficiency": { "label": "Efficiency", "value": "Up to 27% increase" },
+          "executions": { "label": "Executions", "value": "Hourly, automated" }
+        },
+        "categories": ["Automation", "Data Engineering"]
+      },
+      "pjt4": {
+        "title": "AI Credits Monitoring Dashboard",
+        "subtitle": "FinOps applied to AI predicting credit depletion and avoiding financial surprises",
+        "category": "analytics",
+        "tags": [
+          "Looker Studio",
+          "Google Sheets",
+          "FinOps",
+          "AI"
+        ],
+        "problem": "The company used a credit-based corporate AI platform, but there was no structured control over credit usage. This generated unexpected consumption spikes without clear explanation, risk of premature depletion impacting critical operations, and difficulty for management to make preventive decisions.",
+        "solution": "I created an analytical dashboard in Looker Studio that consolidates AI credit consumption data, displays key usage and balance metrics, facilitates historical tracking, and makes consumption transparent for non-technical stakeholders. The solution includes credit depletion projection (estimate of remaining weeks) and consumption analysis by professional and sector.",
+        "impact": [
+          "Greater AI cost predictability",
+          "Reduced risk of excessive consumption",
+          "Clear visibility of usage by period",
+          "Direct support for strategic decision-making on AI investment",
+          "Quick identification of misuse or inefficient usage"
+        ],
+        "techStack": [
+          "Looker Studio",
+          "Google Sheets",
+          "Data Modeling"
+        ],
+        "challenges": [
+          "Creation of auxiliary (hidden) table for user-to-sector mapping",
+          "Relationship between consumption by employee and organizational structure",
+          "Calculation of credit depletion projection"
+        ],
+        "keyMetrics": [
+          "Credit depletion projection (in weeks)",
+          "Total and weekly average consumption",
+          "Consumption over weeks",
+          "Consumption by professional",
+          "Consumption by area/sector"
+        ],
+        "metrics": {
+          "updateFrequency": { "label": "Update Frequency", "value": "Weekly" },
+          "users": { "label": "Users", "value": "CEO, Board, Corporate Intelligence Team" },
+          "projection": { "label": "Projection", "value": "Credit depletion forecast" }
+        },
+        "categories": ["Analytics"],
+        "funFact": "Dashboard created weeks after platform adoption, preventively avoiding future issues."
+      },
+      "pjt5": {
+        "title": "Employee Experience Dashboard (eNPS)",
+        "subtitle": "People Analytics transforming 200+ manual slides into dynamic analyses",
+        "category": "bi",
+        "tags": [
+          "Power BI",
+          "DAX",
+          "People Analytics",
+          "eNPS"
+        ],
+        "problem": "For each organizational climate survey, HR needed to extract a CSV report, manually create charts, capture screenshots, and prepare a presentation with over 200 slides. This process was extremely time-consuming, repetitive, error-prone, and metrics were only analyzed at presentation time, with little flexibility for deep analyses.",
+        "solution": "I created an interactive dashboard in Power BI that analyzes overall employee satisfaction, compares results between surveys, identifies improvement opportunities by area/pillar/leadership, and supports preventive actions to reduce turnover risk. Includes historical consolidation of all surveys, favorability classification via score ranges, leadership analysis even with anonymous surveys, and dynamic word cloud of comments with stop word treatment.",
+        "impact": [
+          "Drastic reduction in HR time spent preparing analyses",
+          "Elimination of extensive manual presentations (200+ slides)",
+          "Greater clarity and objectivity in reading results",
+          "Possibility of continuous analyses, not just point-in-time",
+          "Generation of previously non-existent insights"
+        ],
+        "techStack": [
+          "Power BI",
+          "DAX",
+          "Data Modeling",
+          "CSV (HXM)"
+        ],
+        "challenges": [
+          "Creation of calculated columns for quarter and favorability",
+          "Comparisons between surveys with irregular intervals",
+          "DAX measures for historical evolution",
+          "Word cloud implementation with stop word treatment",
+          "Relationship with external leadership base"
+        ],
+        "keyFeatures": [
+          "Overall and sectoral average score",
+          "Target achievement",
+          "Percentage evolution between surveys",
+          "Expandable table (Pillar → Questions → Score)",
+          "Favorability distribution by pillar",
+          "Departmental comparative analyses",
+          "Leadership analysis (coordinators and heads)",
+          "Dynamic comment word cloud"
+        ],
+        "metrics": {
+          "frequency": { "label": "Survey Frequency", "value": "Four-monthly" },
+          "previousSlides": { "label": "Before Automation", "value": "200+ slides" },
+          "users": { "label": "Users", "value": "HR, Board, Leaders" }
+        },
+        "categories": ["BI"]
+      },
+      "pjt6": {
+        "title": "GHG Emissions Calculation Automation (ESG)",
+        "subtitle": "Google Apps Script automating distance calculation for 150+ employees",
+        "category": "automation",
+        "tags": [
+          "JavaScript",
+          "Google Apps Script",
+          "Google Maps API",
+          "ESG"
+        ],
+        "problem": "The company needed to create its first ESG report and calculate the ground distance between the addresses of over 150 employees and headquarters. Manually calculating considering actual routes (not straight line) would be extremely time-consuming, error-prone, and not scalable, especially with new hires.",
+        "solution": "I created an automation in Google Sheets using Apps Script that automatically calculates the actual ground distance between employee address and company headquarters via Google Maps API. The spreadsheet has a custom button that, when clicked, automatically recalculates all distances, allowing updates whenever the base is modified.",
+        "impact": [
+          "Elimination of an unfeasible manual process",
+          "Significant reduction in operational time",
+          "Standardization of distance calculations",
+          "Enablement of the company's ESG report",
+          "Solid foundation for future emissions and environmental impact analyses of commuting"
+        ],
+        "techStack": [
+          "Google Sheets",
+          "JavaScript (Apps Script)",
+          "Google Maps API"
+        ],
+        "challenges": [
+          "Integration with Google Maps API for ground route calculation",
+          "Creation of custom button in Sheets interface",
+          "Handling incomplete or invalid addresses"
+        ],
+        "dataInputs": [
+          "Employee name",
+          "Residential address",
+          "Work model (on-site/hybrid)",
+          "On-site days",
+          "Transportation mode",
+          "Fuel type"
+        ],
+        "metrics": {
+          "employees": { "label": "Employees", "value": "150+" },
+          "precision": { "label": "Precision", "value": "Actual ground route via Google Maps" },
+          "updates": { "label": "Updates", "value": "Manual via custom button" }
+        },
+        "categories": ["Automation"]
+      },
+      "pjt7": {
+        "title": "Automated Salary Data Collection with Web Scraping",
+        "subtitle": "Selenium + Python collecting benchmarks for 100+ positions automatically",
+        "category": "dataEngineering",
+        "tags": [
+          "Python",
+          "Selenium",
+          "Web Scraping",
+          "Pandas"
+        ],
+        "problem": "The company needed to assess whether practiced salaries were market-aligned and define realistic salary ranges for new positions. With over 100 different positions, manually researching the average salary for each position on public platforms would be extremely time-consuming, repetitive, and not scalable.",
+        "solution": "I developed a Python script with Selenium that reads a base with a list of positions, performs automatic searches on the salary platform (Glassdoor), extracts the corresponding average salary for each position, and generates a structured CSV file for analysis. The solution uses dynamic web scraping due to dynamic page components.",
+        "impact": [
+          "Significant savings in HR operational time",
+          "Reduced risk of opening positions with off-market salaries",
+          "Improved position acceptance rate",
+          "Direct support for HR and Finance decision-making",
+          "Support for competitive salary definition"
+        ],
+        "techStack": [
+          "Python",
+          "Selenium",
+          "Pandas",
+          "CSV"
+        ],
+        "challenges": [
+          "First practical contact with web scraping",
+          "Using Selenium to handle dynamic pages",
+          "Treatment of automatically collected data",
+          "Dealing with external platform limitations"
+        ],
+        "pipeline": [
+          "Reading position base",
+          "Navigation and search automation by position",
+          "Average salary extraction",
+          "Value treatment and standardization",
+          "Structured CSV generation"
+        ],
+        "metrics": {
+          "positions": { "label": "Positions Researched", "value": "100+" },
+          "execution": { "label": "Execution", "value": "Manual and on-demand" },
+          "users": { "label": "Users", "value": "HR, Finance Management" }
+        },
+        "categories": ["Automation", "Data Engineering"]
+      }
+    }
+  },
+  "about": {
+    "title": "Business Analyst & Data Professional",
+    "description": "Solid experience in automation, data, and BI. Over 1 year transforming data into strategic decisions.",
+    "viewProjects": "View Projects",
+    "differentiators": {
+      "criticalThinking": {
+        "title": "Critical Thinking",
+        "description": "Support for strategic decision-making with deep analysis"
+      },
+      "softSkills": {
+        "title": "Advanced Soft Skills",
+        "description": "Daily collaboration with board, HR, and senior management"
+      },
+      "solidTech": {
+        "title": "Solid Technical Background",
+        "description": "BI, Programming, AI, and Integrated Automations"
+      }
+    },
+    "skills": {
+      "automation": {
+        "title": "Automation",
+        "description": "n8n, Python, intelligent workflows"
+      },
+      "dataBI": {
+        "title": "Data, BI & Analytics",
+        "description": "Power BI, ETL, analysis, and modeling"
+      },
+      "strategyIA": {
+        "title": "Strategy & AI",
+        "description": "Corporate intelligence, data-driven decisions"
+      }
+    },
+    "experience": {
+      "title": "Professional Data Journey",
+      "items": {
+        "exp1": {
+          "title": "Business Analytics Intern",
+          "company": "Corporate Intelligence Sector (5 months) • PGMais",
+          "description": "Work in strategic BI for multiple areas and senior management, creating dashboards and corporate analyses while automating processes with n8n, Python, and AI agents for operational efficiency gains."
+        },
+        "exp2": {
+          "title": "Business Analytics Intern",
+          "company": "Financial Sector (5 months) • PGMais",
+          "description": "Developed dashboards and FP&A analyses, automating processes, querying SQL databases, and presenting financial and operational results to stakeholders and the board."
+        },
+        "exp3": {
+          "title": "Control Desk Intern",
+          "company": "First position (10 months) • PGMais",
+          "description": "Worked in operational monitoring and service quality, analyzing data, managing campaigns and messaging systems, and documenting and optimizing internal processes."
+        }
+      }
+    },
+    "education": {
+      "title": "Academic Background",
+      "degree": "Bachelor of Information Systems",
+      "period": "7th/8th Semester • Universidade Positivo",
+      "progress": "Progress"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "dataBI": {
+        "title": "Data, BI & Analytics",
+        "items": [
+          "Power BI",
+          "SQL",
+          "Data Modeling",
+          "DAX",
+          "Looker Studio"
+        ]
+      },
+      "automation": {
+        "title": "Automation",
+        "items": [
+          "Python",
+          "n8n",
+          "APIs",
+          "Google Apps Script"
+        ]
+      },
+      "dataEngineering": {
+        "title": "Data Engineering",
+        "items": [
+          "ETL",
+          "Pipelines",
+          "Integrations",
+          "PostgreSQL",
+          "SFTP"
+        ]
+      },
+      "business": {
+        "title": "Business",
+        "items": [
+          "KPIs",
+          "Operational Analysis",
+          "Efficiency",
+          "FinOps",
+          "People Analytics"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "title": "Have a project in mind or want to explore opportunities?",
+    "subtitle": "I'm open to freelancing and project collaborations. Let's talk about how I can help you or your company.",
+    "socialPrefix": "Prefer other networks?",
+    "success": {
+      "title": "Message Sent!",
+      "description": "Thanks for getting in touch. I'll get back to you soon.",
+      "backToForm": "Back to form"
+    },
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "subject": "Subject (freelance, partnership, etc)",
+      "message": "Describe your idea, project, or opportunity",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "status": "I'll respond within 24h"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Heros Dinão. All rights reserved."
+  },
+  "techStack": {
+    "title": "Technologies I use"
+  },
+  "projectPage": {
+    "sections": {
+      "overview": "Overview",
+      "problem": "The Problem",
+      "solution": "The Solution",
+      "impact": "Impact Generated",
+      "techStack": "Tech Stack",
+      "technicalStack": "Technical Stack",
+      "challenges": "Technical Challenges",
+      "architecture": "Architecture",
+      "keyMetrics": "Key Metrics",
+      "keyFeatures": "Key Features",
+      "dataInputs": "Data Inputs",
+      "pipeline": "Pipeline",
+      "funFact": "Fun Fact"
+    },
+    "media": {
+      "clickToEnlarge": "Click to enlarge",
+      "videoUnavailable": "Video unavailable at the moment",
+      "bonusImages": "Bonus Photos / Details",
+      "viewPhoto": "View Photo",
+      "closeZoom": "Close zoom"
+    },
+    "projectNotFound": "Project not found"
+  }
+}

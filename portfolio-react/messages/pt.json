@@ -1,0 +1,507 @@
+{
+  "nav": {
+    "brand": "Heros.dev",
+    "projects": "Projetos",
+    "about": "Sobre",
+    "skills": "Skills",
+    "contact": "Contato",
+    "cta": "Falar comigo",
+    "home": "Início",
+    "menu": "Menu",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "brandName": "Heros Dinão"
+  },
+  "hero": {
+    "title": "Transformo processos manuais e dados desorganizados em",
+    "titleHighlight": "sistemas automáticos de decisão",
+    "subtitle": "Automação, Business Intelligence e Engenharia de Dados aplicados a problemas reais de negócio.",
+    "ctaPrimary": "Ver projetos",
+    "ctaSecondary": "Entrar em contato"
+  },
+  "projects": {
+    "sectionTitle": "Projetos Selecionados",
+    "sectionSubtitle": "Casos práticos focados em eficiência operacional",
+    "filters": {
+      "all": "Todos",
+      "automation": "Automação",
+      "bi": "BI & Analytics",
+      "dataEngineering": "Data Engineering"
+    },
+    "viewCase": "Ver caso completo →",
+    "items": {
+      "pjt1": {
+        "title": "Automação de Aprovação de Horas Extras",
+        "subtitle": "Fluxo n8n + Slack reduzindo 2h/dia de trabalho manual do RH",
+        "category": "automation",
+        "tags": [
+          "n8n",
+          "Slack",
+          "JavaScript",
+          "APIs"
+        ],
+        "problem": "O RH processava manualmente cerca de 300 registros de horas extras por mês, verificando um a um se os chamados haviam sido abertos e cobrando colaboradores e gestores individualmente. Esse processo consumia aproximadamente 2 horas diárias, limitando a atuação estratégica da equipe.",
+        "solution": "Desenvolvi um fluxo automatizado no n8n que executa diariamente, consumindo o relatório de ponto, identificando colaboradores com horas extras, verificando a existência de tickets correspondentes e enviando mensagens diretas no Slack para colaboradores (quando o chamado não foi aberto) e gestores (quando está pendente de aprovação). O robô possui uma persona própria chamada Isadora, tornando a comunicação mais natural.",
+        "impact": [
+          "Economia de ~2 horas por dia (~10h/semana, ~40h/mês)",
+          "Eliminação quase total do trabalho manual repetitivo",
+          "RH liberado para atividades mais estratégicas",
+          "Processo padronizado com maior confiabilidade",
+          "Maior taxa de resposta dos envolvidos"
+        ],
+        "techStack": [
+          "n8n",
+          "JavaScript",
+          "Google Sheets",
+          "Slack API",
+          "Sistema de Chamados"
+        ],
+        "challenges": [
+          "Desenvolvimento de lógica de fallback para IDs não encontrados",
+          "Formatação dinâmica de mensagens conforme quantidade de horas/minutos",
+          "Normalização e tratamento de dados do relatório de ponto",
+          "Integração entre múltiplos sistemas (ponto, chamados, Slack)"
+        ],
+        "metrics": {
+          "timeSaved": { "label": "Tempo Economizado", "value": "~2 horas/dia" },
+          "weekly": { "label": "Semanalizado", "value": "~10 horas/semana" },
+          "monthly": { "label": "Mensal", "value": "~40 horas/mês" }
+        },
+        "categories": ["Automação", "Engenharia de Dados"],
+        "funFact": "Esse foi o primeiro projeto de automação com persona implementado na empresa, utilizando um agente que interage como uma colaboradora real."
+      },
+      "pjt2": {
+        "title": "Dashboard Financeiro para Análise de Performance",
+        "subtitle": "KPIs financeiros com modelagem analítica substituindo análise manual em Excel",
+        "category": "bi",
+        "tags": [
+          "Power BI",
+          "DAX",
+          "Modelagem de Dados",
+          "FP&A"
+        ],
+        "problem": "A empresa extraía mensalmente um relatório financeiro em CSV do ERP com métricas como receita bruta, lucro bruto, lucro líquido, CMV e despesas operacionais. Porém, os dados eram apenas brutos, sem organização, cálculos comparativos ou indicadores que facilitassem a tomada de decisão. O processo era totalmente manual, sem padronização e consumia muito tempo da gestão.",
+        "solution": "Desenvolvi um dashboard financeiro estratégico no Power BI que transforma dados brutos em informação acionável. A solução inclui métricas automatizadas, comparações entre períodos (MoM), visualizações estratégicas focadas em performance e interface intuitiva pensada para uso recorrente. Utilizei parâmetros dinâmicos para controle de métricas, gráficos de linha com seleção dinâmica de indicadores e funil financeiro estruturado para leitura estratégica.",
+        "impact": [
+          "Redução significativa do tempo de análise financeira mensal",
+          "Decisões mais rápidas e claras baseadas em dados tratados",
+          "Padronização completa da análise mensal",
+          "Substituição total do Excel bruto manual",
+          "Dashboard em uso ativo pela diretoria"
+        ],
+        "techStack": [
+          "Power BI",
+          "DAX",
+          "Modelagem de Dados",
+          "SQL",
+          "Excel"
+        ],
+        "challenges": [
+          "Criação de tabela totalmente dinâmica controlada pelo usuário",
+          "Construção do funil financeiro com múltiplas etapas",
+          "Modelagem para permitir comparações entre períodos",
+          "Cálculo automatizado de métricas como EBITDA e margens"
+        ],
+        "keyMetrics": [
+          "EBITDA",
+          "Variação MoM",
+          "Funil Financeiro",
+          "Lucro Bruto vs CMV",
+          "Receita ao longo dos meses",
+          "Cálculo de margens"
+        ],
+        "metrics": {
+          "timeSaved": { "label": "Redução de Tempo", "value": "1h30min" },
+          "analysisSpeed": { "label": "Velocidade de Análise", "value": "Redução drástica" },
+          "status": { "label": "Status", "value": "Em uso ativo pela diretoria" }
+        },
+        "categories": ["BI"]
+      },
+      "pjt3": {
+        "title": "Pipeline de Dados Automatizada para Campanhas de Mailing",
+        "subtitle": "ETL automatizado reduzindo tempo de execução em 57% e aumentando eficiência em 27%",
+        "category": "dataEngineering",
+        "tags": [
+          "Python",
+          "PostgreSQL",
+          "ETL",
+          "SFTP",
+          "Pandas"
+        ],
+        "problem": "As campanhas de mailing exigiam que, a cada hora das 08:00 às 20:00 (segunda a sábado), alguém executasse queries no PostgreSQL, aguardasse a finalização, exportasse resultados em CSV e importasse os arquivos no discador via SFTP. Esse processo apresentava alto risco de erro humano, atrasos nas campanhas e dependência total de operadores técnicos. O projeto surgiu durante minha transição de área, exigindo uma solução que eliminasse completamente a execução humana.",
+        "solution": "Desenvolvi uma pipeline de dados automatizada que executa de hora em hora: executa queries SQL no PostgreSQL, exporta resultados em CSV, nomeia arquivos dinamicamente com data/hora, envia automaticamente via SFTP para pastas mapeadas e o discador inicia a campanha automaticamente ao detectar o arquivo. O processo roda completamente headless, sem intervenção humana.",
+        "impact": [
+          "Redução do tempo de execução de 15-20 min → ~7 min por ciclo (57% mais rápido)",
+          "Eliminação total do trabalho manual recorrente",
+          "Menor quantidade de campanhas paradas",
+          "Menor ociosidade das IAs de robocall",
+          "Aumento de até 27% na eficiência das campanhas",
+          "Melhora direta nas taxas de conversão e acordos/base"
+        ],
+        "techStack": [
+          "Python",
+          "psycopg3",
+          "paramiko",
+          "pandas",
+          "PostgreSQL",
+          "SFTP",
+          "Agendador de Tarefas Windows"
+        ],
+        "challenges": [
+          "Aprendizado e implementação de integrações Python com PostgreSQL e SFTP",
+          "Contorno de limitações internas (GPO)",
+          "Garantir estabilidade e tolerância a falhas de conexão",
+          "Criar solução robusta sem infraestrutura dedicada (rodando em máquina local)"
+        ],
+        "architecture": [
+          "PostgreSQL → Query SQL",
+          "Script Python → Tratamento de dados",
+          "CSV exportado com nomenclatura dinâmica",
+          "Pasta mapeada via SFTP",
+          "Discador detecta arquivo e inicia campanha automaticamente"
+        ],
+        "metrics": {
+          "timeSaved": { "label": "Redução de Tempo", "value": "15-20 min → ~7 min por ciclo" },
+          "efficiency": { "label": "Eficiência", "value": "Aumento de até 27%" },
+          "executions": { "label": "Execuções", "value": "Horária, automatizada" }
+        },
+        "categories": ["Automação", "Engenharia de Dados"]
+      },
+      "pjt4": {
+        "title": "Dashboard de Monitoramento de Créditos de IA",
+        "subtitle": "FinOps aplicado a IA prevendo esgotamento de créditos e evitando surpresas financeiras",
+        "category": "analytics",
+        "tags": [
+          "Looker Studio",
+          "Google Sheets",
+          "FinOps",
+          "IA"
+        ],
+        "problem": "A empresa utilizava uma plataforma corporativa de IA credit-based, mas não existia qualquer controle estruturado sobre o uso dos créditos. Isso gerava picos inesperados de consumo sem explicação clara, risco de esgotamento prematuro impactando operações críticas e dificuldade da gestão em tomar decisões preventivas.",
+        "solution": "Criei um dashboard analítico no Looker Studio que consolida dados de consumo de créditos de IA, exibe métricas-chave de uso e saldo, facilita acompanhamento histórico e torna o consumo transparente para stakeholders não técnicos. A solução inclui projeção de esgotamento dos créditos (estimativa de quantas semanas restam) e análise de consumo por profissional e setor.",
+        "impact": [
+          "Maior previsibilidade de custos com IA",
+          "Redução do risco de consumo excessivo",
+          "Visibilidade clara do uso por período",
+          "Apoio direto à tomada de decisão estratégica sobre investimento em IA",
+          "Identificação rápida de usos indevidos ou ineficientes"
+        ],
+        "techStack": [
+          "Looker Studio",
+          "Google Sheets",
+          "Modelagem de Dados"
+        ],
+        "challenges": [
+          "Criação de tabela auxiliar (oculta) para de-para entre usuários e setores",
+          "Relacionamento entre consumo por colaborador e estrutura organizacional",
+          "Cálculo da projeção de esgotamento de créditos"
+        ],
+        "keyMetrics": [
+          "Projeção de esgotamento dos créditos (em semanas)",
+          "Consumo total e médio semanal",
+          "Consumo ao longo das semanas",
+          "Consumo por profissional",
+          "Consumo por área/setor"
+        ],
+        "metrics": {
+          "updateFrequency": { "label": "Frequência de Atualização", "value": "Semanal" },
+          "users": { "label": "Usuários", "value": "CEO, Diretoria, Time de Inteligência Corporativa" },
+          "projection": { "label": "Projeção", "value": "Previsão de esgotamento dos créditos" }
+        },
+        "categories": ["Analytics"],
+        "funFact": "Dashboard criado poucas semanas após adoção da plataforma, evitando problemas futuros de forma preventiva."
+      },
+      "pjt5": {
+        "title": "Dashboard de Experiência do Colaborador (eNPS)",
+        "subtitle": "People Analytics transformando 200+ slides manuais em análises dinâmicas",
+        "category": "bi",
+        "tags": [
+          "Power BI",
+          "DAX",
+          "People Analytics",
+          "eNPS"
+        ],
+        "problem": "A cada pesquisa de clima organizacional, o RH precisava extrair relatório CSV, criar gráficos manualmente, capturar prints e elaborar apresentação com mais de 200 slides. Esse processo era extremamente demorado, repetitivo, propenso a erros e as métricas só eram analisadas pontualmente no momento da apresentação, com pouca flexibilidade para análises profundas.",
+        "solution": "Criei um dashboard interativo no Power BI que analisa satisfação geral dos colaboradores, compara resultados entre pesquisas, identifica oportunidades de melhoria por área/pilar/liderança e apoia ações preventivas para reduzir risco de turnover. Inclui consolidação histórica de todas as pesquisas, classificação de favorabilidade via range de notas, análises por liderança mesmo com pesquisa anônima e word cloud dinâmica de comentários com tratamento de stop words.",
+        "impact": [
+          "Redução drástica do tempo gasto pelo RH na preparação das análises",
+          "Eliminação da necessidade de apresentações extensas e manuais (200+ slides)",
+          "Maior clareza e objetividade na leitura dos resultados",
+          "Possibilidade de análises contínuas, não apenas pontuais",
+          "Geração de novos insights antes inexistentes"
+        ],
+        "techStack": [
+          "Power BI",
+          "DAX",
+          "Modelagem de Dados",
+          "CSV (HXM)"
+        ],
+        "challenges": [
+          "Criação de colunas calculadas para quadrimestre e favorabilidade",
+          "Comparações entre pesquisas com intervalos irregulares",
+          "Medidas DAX para evolução histórica",
+          "Implementação de word cloud com tratamento de stop words",
+          "Relacionamento com base externa de liderança"
+        ],
+        "keyFeatures": [
+          "Nota média geral e por setor",
+          "Atingimento de meta",
+          "Evolução percentual entre pesquisas",
+          "Tabela expansível (Pilar → Perguntas → Nota)",
+          "Distribuição de favorabilidade por pilar",
+          "Análises comparativas departamentais",
+          "Análise por liderança (coordenadores e heads)",
+          "Word cloud dinâmica de comentários"
+        ],
+        "metrics": {
+          "frequency": { "label": "Frequência da Pesquisa", "value": "Quadrimestral" },
+          "previousSlides": { "label": "Antes da Automação", "value": "200+ slides" },
+          "users": { "label": "Usuários", "value": "RH, Diretoria, Lideranças" }
+        },
+        "categories": ["BI"]
+      },
+      "pjt6": {
+        "title": "Automação de Cálculo de Emissões de Gases (ESG)",
+        "subtitle": "Google Apps Script automatizando cálculo de distância para 150+ colaboradores",
+        "category": "automation",
+        "tags": [
+          "JavaScript",
+          "Google Apps Script",
+          "Google Maps API",
+          "ESG"
+        ],
+        "problem": "A empresa precisava criar seu primeiro relatório ESG e calcular a distância terrestre entre o endereço de mais de 150 colaboradores e a sede. Calcular manualmente considerando trajeto real (não linha reta) seria extremamente demorado, sujeito a erros e pouco escalável, especialmente com a entrada de novos profissionais.",
+        "solution": "Criei uma automação no Google Sheets usando Apps Script que calcula automaticamente a distância terrestre real entre endereço do colaborador e sede da empresa via Google Maps API. A planilha possui um botão customizado que, ao ser clicado, recalcula todas as distâncias automaticamente, permitindo atualizações sempre que a base for alterada.",
+        "impact": [
+          "Eliminação de um processo manual inviável",
+          "Redução significativa de tempo operacional",
+          "Padronização dos cálculos de distância",
+          "Viabilização do relatório ESG da empresa",
+          "Base sólida para análises futuras de emissões e impacto ambiental do deslocamento"
+        ],
+        "techStack": [
+          "Google Sheets",
+          "JavaScript (Apps Script)",
+          "Google Maps API"
+        ],
+        "challenges": [
+          "Integração com Google Maps API para cálculo de trajeto terrestre",
+          "Criação de botão customizado na interface do Sheets",
+          "Tratamento de endereços incompletos ou inválidos"
+        ],
+        "dataInputs": [
+          "Nome do colaborador",
+          "Endereço residencial",
+          "Modelo de trabalho (presencial/híbrido)",
+          "Dias presenciais",
+          "Meio de transporte",
+          "Tipo de combustível"
+        ],
+        "metrics": {
+          "employees": { "label": "Colaboradores", "value": "150+" },
+          "precision": { "label": "Precisão", "value": "Trajeto terrestre real via Google Maps" },
+          "updates": { "label": "Atualizações", "value": "Manual via botão customizado" }
+        },
+        "categories": ["Automação"]
+      },
+      "pjt7": {
+        "title": "Coleta Automatizada de Dados Salariais com Web Scraping",
+        "subtitle": "Selenium + Python coletando benchmarks de 100+ cargos automaticamente",
+        "category": "dataEngineering",
+        "tags": [
+          "Python",
+          "Selenium",
+          "Web Scraping",
+          "Pandas"
+        ],
+        "problem": "A empresa precisava avaliar se os salários praticados estavam alinhados ao mercado e definir faixas salariais realistas para novas vagas. Com mais de 100 cargos diferentes, pesquisar manualmente a média salarial de cada cargo em plataformas públicas seria extremamente demorado, repetitivo e pouco escalável.",
+        "solution": "Desenvolvi um script em Python com Selenium que lê uma base com lista de cargos, realiza buscas automáticas na plataforma de salários (Glassdoor), extrai o salário médio correspondente a cada cargo e gera arquivo CSV estruturado para análise. A solução utiliza web scraping dinâmico devido aos componentes dinâmicos da página.",
+        "impact": [
+          "Economia significativa de tempo operacional do RH",
+          "Redução do risco de abrir vagas com salários fora do padrão de mercado",
+          "Melhoria na taxa de adesão às vagas",
+          "Apoio direto à tomada de decisão de RH e Financeiro",
+          "Suporte à definição de salários competitivos"
+        ],
+        "techStack": [
+          "Python",
+          "Selenium",
+          "Pandas",
+          "CSV"
+        ],
+        "challenges": [
+          "Primeiro contato prático com web scraping",
+          "Uso de Selenium para lidar com páginas dinâmicas",
+          "Tratamento de dados coletados automaticamente",
+          "Lidando com limitações de plataformas externas"
+        ],
+        "pipeline": [
+          "Leitura da base de cargos",
+          "Automação da navigation e busca por cargo",
+          "Extração do salário médio",
+          "Tratamento e padronização dos valores",
+          "Geração de CSV estruturado"
+        ],
+        "metrics": {
+          "positions": { "label": "Cargos Pesquisados", "value": "100+" },
+          "execution": { "label": "Execução", "value": "Manual e sob demanda" },
+          "users": { "label": "Usuários", "value": "RH, Gestão Financeira" }
+        },
+        "categories": ["Automação", "Engenharia de Dados"]
+      }
+    }
+  },
+  "about": {
+    "title": "Business Analyst & Data Professional",
+    "description": "Experiência sólida em automação, dados e BI. Mais de 1 ano transformando dados em decisões estratégicas.",
+    "viewProjects": "Ver Projetos",
+    "differentiators": {
+      "criticalThinking": {
+        "title": "Pensamento Crítico",
+        "description": "Apoio nas tomadas de decisão estratégica com análises profundas"
+      },
+      "softSkills": {
+        "title": "Soft Skills Avançadas",
+        "description": "Trabalho diário com diretoria, RH e alta gestão"
+      },
+      "solidTech": {
+        "title": "Técnica Sólida",
+        "description": "BI, Programação, IA e Automações Integradas"
+      }
+    },
+    "skills": {
+      "automation": {
+        "title": "Automação",
+        "description": "n8n, Python, workflows inteligentes"
+      },
+      "dataBI": {
+        "title": "Data, BI & Analytics",
+        "description": "Power BI, ETL, análise e modelagem"
+      },
+      "strategyIA": {
+        "title": "Estratégia & IA",
+        "description": "Inteligência corporativa, decisões data-driven"
+      }
+    },
+    "experience": {
+      "title": "Jornada Profissional com Dados",
+      "items": {
+        "exp1": {
+          "title": "Estagiário de Business Analytics",
+          "company": "Setor de Inteligência Corporativa (5 meses) • PGMais",
+          "description": "Atuo em BI estratégico para múltiplas áreas e alta gestão, criando dashboards e análises corporativas enquanto automatizo processos com n8n, Python e agentes de IA para ganho de eficiência operacional."
+        },
+        "exp2": {
+          "title": "Estagiário de Business Analytics",
+          "company": "Setor Financeiro (5 meses) • PGMais",
+          "description": "Desenvolvi dashboards e análises de FP&A, automatizando processos, consultando bases em SQL e apresentando resultados financeiros e operacionais para stakeholders e diretoria."
+        },
+        "exp3": {
+          "title": "Estagiário de Control Desk",
+          "company": "Primeira posição (10 meses) • PGMais",
+          "description": "Atuei no monitoramento operacional e qualidade de atendimento, analisando dados, gerenciando campanhas e sistemas de mensageria, além de documentar e otimizar processos internos."
+        }
+      }
+    },
+    "education": {
+      "title": "Formação Acadêmica",
+      "degree": "Bacharelado em Sistemas de Informação",
+      "period": "7º/8º Período • Universidade Positivo",
+      "progress": "Progresso"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "categories": {
+      "dataBI": {
+        "title": "Data, BI & Analytics",
+        "items": [
+          "Power BI",
+          "SQL",
+          "Modelagem de Dados",
+          "DAX",
+          "Looker Studio"
+        ]
+      },
+      "automation": {
+        "title": "Automação",
+        "items": [
+          "Python",
+          "n8n",
+          "APIs",
+          "Google Apps Script"
+        ]
+      },
+      "dataEngineering": {
+        "title": "Engenharia de Dados",
+        "items": [
+          "ETL",
+          "Pipelines",
+          "Integrações",
+          "PostgreSQL",
+          "SFTP"
+        ]
+      },
+      "business": {
+        "title": "Business",
+        "items": [
+          "KPIs",
+          "Análise Operacional",
+          "Eficiência",
+          "FinOps",
+          "People Analytics"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "title": "Tem um projeto em mente ou quer explorar oportunidades?",
+    "subtitle": "Estou aberto para freelances e colaborações em projetos. Vamos conversar sobre como posso ajudar você ou sua empresa.",
+    "socialPrefix": "Prefere outras redes?",
+    "success": {
+      "title": "Mensagem Enviada!",
+      "description": "Obrigado pelo contato. Responderei em breve.",
+      "backToForm": "Voltar ao formulário"
+    },
+    "form": {
+      "name": "Seu nome",
+      "email": "Seu e-mail",
+      "subject": "Assunto (freelance, parceria, etc)",
+      "message": "Descreva sua ideia, projeto ou oportunidade",
+      "submit": "Enviar mensagem",
+      "sending": "Enviando...",
+      "status": "Vou responder em até 24h"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} Heros Dinão. Todos os direitos reservados."
+  },
+  "techStack": {
+    "title": "Tecnologias que utilizo"
+  },
+  "projectPage": {
+    "sections": {
+      "overview": "Visão Geral",
+      "problem": "O Problema",
+      "solution": "A Solução",
+      "impact": "Impacto Gerado",
+      "techStack": "Stack Técnica",
+      "technicalStack": "Stack Técnico",
+      "challenges": "Desafios Técnicos",
+      "architecture": "Arquitetura",
+      "keyMetrics": "Métricas Principais",
+      "keyFeatures": "Funcionalidades-Chave",
+      "dataInputs": "Dados de Entrada",
+      "pipeline": "Pipeline",
+      "funFact": "Fun Fact"
+    },
+    "media": {
+      "clickToEnlarge": "Clique para ampliar",
+      "videoUnavailable": "Vídeo indisponível no momento",
+      "bonusImages": "Fotos Bônus / Detalhes",
+      "viewPhoto": "Ver Foto",
+      "closeZoom": "Fechar zoom"
+    },
+    "projectNotFound": "Projeto não encontrado"
+  }
+}

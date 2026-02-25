@@ -1,0 +1,158 @@
+{
+"projetos": [
+    {
+    "id": 1,
+    "key": "pjt1",
+    "slug": "automacao-horas-extras-n8n-slack",
+    "titulo": "Automação de Aprovação de Horas Extras com n8n e Slack",
+    "subtitulo": "Fluxo automatizado que reduz 2h/dia de trabalho manual",
+    "descricaoCurta": "Automação que eliminou 2h/dia de trabalho manual no RH",
+    "categorias": ["automacao", "data"],
+    "tecnologias": ["n8n", "Slack", "JavaScript", "APIs"],
+    "problema": "O processo anterior apresentava um fluxo 100% manual e repetitivo executado diariamente pelo RH. Com cerca de 300 registros de horas extras por mês, a profissional responsável precisava extrair o relatório do ponto, filtrar colaboradores com horas extras, verificar se o chamado havia sido aberto e cobrar individualmente. Isso gerava sobrecarga operacional, alto consumo de tempo e limitava a atuação do RH em atividades mais estratégicas.",
+    "solucao": "Foi implementado um fluxo automatizado no n8n, executando diariamente, que consome automaticamente o relatório de ponto em CSV, identifica colaboradores com horas extras registradas, verifica se existe ticket correspondente na plataforma de chamados e envia mensagens diretas na plataforma de comunicação interna para o colaborador (quando o chamado não foi aberto) ou para o gestor (quando o chamado está pendente de aprovação). O fluxo utiliza um usuário específico com uma persona própria, tornando a comunicação mais natural.",
+    "impacto": "Eliminação de aproximadamente 2 horas diárias de trabalho manual do RH. Redução significativa de sobrecarga operacional. Padronização e maior controle do processo de validação. Liberação do tempo da profissional de RH para atuação em projetos mais estratégicos.",
+    "metricas": {
+        "tempoEconomizado": "~2 horas/dia",
+        "semanalizado": "~10 horas/semana",
+        "mensal": "~40 horas/mês"
+    },
+    "desafios": "Desenvolvimento de fluxos de disparo automático de mensagens. Estruturação de código focado em manutenção.",
+    "imagens": ["/projects/slack-print-en.JPG"],
+    "video": "https://www.youtube.com/embed/rrQgWHtkBcg?si=zcxhcCAGuDnbndCZ",
+    "status": "producao"
+    },
+    {
+    "id": 2,
+    "key": "pjt2",
+    "slug": "dashboard-financeiro-analise-performance-power-bi",
+    "titulo": "Dashboard Financeiro para Análise de Performance",
+    "subtitulo": "KPIs financeiros com modelagem analítica em Power BI",
+    "descricaoCurta": "Dashboard estratégico que transforma dados brutos em decisões executivas",
+    "categorias": ["bi"],
+    "tecnologias": ["Power BI", "SQL", "DAX", "Modelagem de Dados"],
+    "problema": "As informações financeiras estavam dispersas em planilhas e sistemas distintos, pouco padronizadas e dependentes de consolidação manual. Isso dificultava a visão clara do cenário financeiro, análises comparativas entre períodos e o acompanhamento contínuo de resultados. O processo era totalmente manual e repetitivo todo mês, consumindo tempo valioso da equipe financeira.",
+    "solucao": "Desenvolveu-se um dashboard financeiro interativo no Power BI que consolida dados financeiros relevantes, oferecendo funil financeiro, visão executiva dos principais indicadores, análises por período, comparações entre realizado e planejado e navegação simples para usuários não técnicos. O dashboard foi estruturado com parâmetros dinâmicos, gráficos interativos e métricas-chave como EBITDA, variação MoM, lucro bruto vs CMV e análise de margens.",
+    "impacto": "Maior clareza sobre a situação financeira da empresa. Redução de tempo gasto na consolidação de dados. Apoio direto à tomada de decisões estratégicas. Padronização da comunicação financeira. Substituição total do Excel bruto manual.",
+    "metricas": {
+        "reducaoTempo": "Significativa",
+        "velocidadeAnalise": "Redução drástica do tempo de análise mensal",
+        "status": "Em uso ativo pela diretora"
+    },
+    "desafios": "Criação de tabela totalmente dinâmica controlada pelo usuário. Construção do funil financeiro. Modelagem para permitir comparações entre períodos.",
+    "imagens": ["/projects/dash-hero.png", "/projects/dash-financeiro.png"],
+    "video": "https://www.youtube.com/embed/R0JvCRZbR4c?si=4ZqtyS_pbwNHx6pu",
+    "status": "producao-mock"
+    },
+    {
+    "id": 3,
+    "key": "pjt3",
+    "slug": "pipeline-dados-mailings-python-etl",
+    "titulo": "Pipeline de Dados para Campanhas de Mailing",
+    "subtitulo": "ETL automatizado que elimina execução manual de 15-20 min por ciclo",
+    "descricaoCurta": "Automação end-to-end que aumentou eficiência das campanhas em até 27%",
+    "categorias": ["automacao", "data"],
+    "tecnologias": ["Python", "PostgreSQL", "SFTP", "Pandas", "Psycopg3", "Paramiko"],
+    "problema": "As campanhas de mailing dependiam de bases manuais ou semi-manuais, com dados desatualizados ou inconsistentes e alto risco de erro humano. O processo manual exigia que a cada hora alguém executasse queries no banco PostgreSQL, aguardasse a finalização, exportasse os resultados em CSV e importasse os arquivos no discador via SFTP. Esse fluxo acontecia das 08:00 às 20:00, de segunda a sábado, apresentando riscos de erro humano, atrasos na ativação e dependência total de um operador técnico.",
+    "solucao": "Desenvolveu-se uma pipeline de dados automatizada, executada via agendamento horário, que executa queries SQL diretamente no PostgreSQL, exporta os resultados em arquivos CSV, nomeia os arquivos dinamicamente com data e hora e envia automaticamente para pastas mapeadas via SFTP. Ao detectar o arquivo, o discador inicia a campanha automaticamente. O processo roda de hora em hora dentro do intervalo operacional definido.",
+    "impacto": "Redução do tempo de execução de 15-20 min para ~7 min por ciclo. Eliminação total do trabalho manual recorrente. Menos campanhas paradas. Menor ociosidade das IAs de robocall. Aumento de até 27% na eficiência das campanhas. Melhora direta nas taxas de conversão e acordos.",
+    "metricas": {
+        "reducaoTempo": "15-20 min → ~7 min por ciclo",
+        "eficiencia": "Aumento de até 27%",
+        "execucoes": "Horária, automatizada"
+    },
+    "desafios": "Aprendizado e implementação de integrações Python com PostgreSQL e SFTP. Garantir estabilidade e tolerância a falhas de conexão. Criar solução robusta sem infraestrutura dedicada.",
+    "imagens": ["/projects/pipeline-diagrama.png", "/projects/code-censored.png"],
+    "video": "https://www.youtube.com/embed/WhfSWSUW2sg?si=jox37XuxSfCmhsva",
+    "status": "producao-mock"
+    },
+    {
+    "id": 4,
+    "key": "pjt4",
+    "slug": "dashboard-monitoramento-creditos-ia-looker-studio",
+    "titulo": "Dashboard de Monitoramento de Créditos de IA",
+    "subtitulo": "FinOps & Governança de Consumo de IA",
+    "descricaoCurta": "Dashboard que previne consumo descontrolado de créditos de IA",
+    "categorias": ["bi"],
+    "tecnologias": ["Looker Studio", "Google Sheets", "DAX", "Modelagem"],
+    "problema": "Ausência total de visibilidade sobre quem estava consumindo créditos de IA, quanto cada área consumia e se o consumo estava trazendo retorno real. Ocorriam picos inesperados de consumo sem explicação clara, gerando risco de esgotamento prematuro dos créditos e impactando operações críticas. A alta gestão tinha dificuldade em tomar decisões preventivas.",
+    "solucao": "Desenvolveu-se um dashboard analítico que permite prever em quantas semanas os créditos serão esgotados, monitorar o consumo de créditos ao longo do tempo, identificar consumo por profissional e setor, calcular a média semanal de consumo e apoiar decisões estratégicas sobre uso e investimento em IA. O dashboard é alimentado por arquivo CSV semanal do fornecedor da plataforma de IA.",
+    "impacto": "Redução de riscos financeiros relacionados ao consumo descontrolado. Capacidade de identificar rapidamente usos indevidos ou ineficientes. Apoio à avaliação de ROI do uso de IA por área. Feedback positivo sobre visual e clareza do dashboard.",
+    "metricas": {
+        "frequenciaAtualizacao": "Semanal",
+        "usuarios": "CEO, Diretoria, Time de Inteligência Corporativa",
+        "projecao": "Previsão de esgotamento dos créditos"
+    },
+    "desafios": "Introdução de FinOps aplicado a IA. Visibilidade completa sobre consumo. Apoio à governança e controle financeiro.",
+    "imagens": ["/projects/creditos-ia-hero.png"],
+    "video": "https://www.youtube.com/embed/Pjgazs-q5Uk?si=wjwIVzACSGdEZ5Dr",
+    "status": "producao-mock"
+    },
+    {
+    "id": 5,
+    "key": "pjt5",
+    "slug": "dashboard-experiencia-colaborador-enps-power-bi",
+    "titulo": "Dashboard de Experiência do Colaborador (eNPS)",
+    "subtitulo": "People Analytics que transforma pesquisa em insights acionáveis",
+    "descricaoCurta": "Dashboard que eliminou análises manuais de 200+ slides",
+    "categorias": ["bi"],
+    "tecnologias": ["Power BI", "DAX", "CSV", "Modelagem"],
+    "problema": "A análise da pesquisa de clima organizacional era feita de forma manual e exaustiva. A cada pesquisa era necessário extrair um relatório CSV, criar gráficos manualmente, capturar prints e elaborar uma apresentação com mais de 200 slides. O processo era demorado, repetitivo e propenso a erros. Métricas só eram analisadas pontualmente, no momento da apresentação.",
+    "solucao": "Desenvolveu-se um dashboard interativo que analisa a satisfação geral dos colaboradores, compara resultados entre pesquisas, identifica oportunidades de melhoria por área, pilar e liderança e apoia ações preventivas para reduzir risco de turnover. O dashboard inclui análises comparativas, word cloud de comentários, filtros por departamento e pilar, e visualizações dinâmicas da evolução quadrimestral.",
+    "impacto": "Redução drástica do tempo gasto pelo RH nas análises. Eliminação da necessidade de apresentações extensas e manuais. Maior clareza e objetividade na leitura dos resultados. Possibilidade de análises contínuas, não apenas pontuais. Geração de novos insights antes inexistentes.",
+    "metricas": {
+        "frequenciaPesquisa": "Quadrimestral",
+        "slidesAntes": "200+ slides",
+        "usuarios": "RH, Diretoria, Lideranças"
+    },
+    "desafios": "Colunas calculadas para quadrimestre e favorabilidade. Comparações entre pesquisas com intervalos irregulares. Medidas DAX para evolução histórica. Word cloud com tratamento de stop words.",
+    "imagens": ["/projects/eNPS-hero.png"],
+    "video": "https://www.youtube.com/embed/3lJ5_fJwFNA?si=YVI3bm5ZA_SzYCRV",
+    "status": "producao-mock"
+    },
+    {
+    "id": 6,
+    "key": "pjt6",
+    "slug": "automacao-calculo-esg-google-sheets-apps-script-javascript",
+    "titulo": "Automação de Cálculo de Gases do Efeito Estufa (ESG)",
+    "subtitulo": "Cálculo automático de distância para relatórios ESG",
+    "descricaoCurta": "Automação que viabilizou o primeiro relatório ESG da empresa",
+    "categorias": ["automacao"],
+    "tecnologias": ["Google Sheets", "JavaScript", "Google Apps Script", "Google Maps API"],
+    "problema": "A empresa precisava criar seu primeiro relatório de ESG, mas calcular manualmente a distância de cada um dos 150+ colaboradores até a sede era inviável. O processo seria demorado, sujeito a erros e pouco escalável. Além disso, a planilha precisava se manter atualizada conforme novos profissionais fossem adicionados.",
+    "solucao": "Desenvolveu-se uma automação integrada ao Google Sheets que calcula automaticamente a distância terrestre entre o endereço de cada colaborador e a sede da empresa. O script utiliza a Google Maps API para cálculo da rota real (não distância em linha reta). Um botão customizado na interface do Sheets permite atualizar os cálculos sempre que a base muda.",
+    "impacto": "Economia significativa de tempo. Eliminação de erros manuais. Viabilização do relatório ESG. Criação de uma base sólida para análises futuras de emissões. Possibilidade de estimar impactos ambientais do deslocamento diário.",
+    "metricas": {
+        "colaboradores": "150+",
+        "precisao": "Trajeto terrestre real via Google Maps",
+        "atualizacoes": "Manual via botão customizado"
+    },
+    "desafios": "Integração com Google Maps API. Cálculo de trajeto real vs distância em linha reta. Escabilidade com atualizações frequentes.",
+    "imagens": ["/projects/esg.png"],
+    "video": "https://www.youtube.com/embed/8hnnrkrXGzs?si=Up4XOTgcftseB_-5",
+    "status": "producao-mock"
+    },
+    {
+    "id": 7,
+    "key": "pjt7",
+    "slug": "coleta-dados-salariais-web-scraping-python-selenium",
+    "titulo": "Coleta Automatizada de Dados Salariais com Web Scraping",
+    "subtitulo": "Automação que pesquisa 100+ cargos em minutos",
+    "descricaoCurta": "Web Scraping que eliminou pesquisa manual de benchmarks salariais",
+    "categorias": ["automacao", "data"],
+    "tecnologias": ["Python", "Selenium", "Pandas", "Web Scraping"],
+    "problema": "A empresa possuía uma base interna com mais de 100 cargos e precisava avaliar se os salários praticados estavam alinhados ao mercado. Pesquisar manualmente a média salarial de cada cargo em plataformas públicas era extremamente demorada, repetitiva e pouco escalável, dificultando decisões de RH e levando a risco de distorções salariais.",
+    "solucao": "Desenvolveu-se um script em Python capaz de ler uma base contendo a lista de cargos, realizar buscas automáticas em plataforma de referência salarial, extrair o salário médio correspondente a cada cargo e gerar um arquivo CSV estruturado para análise. O script utiliza Selenium para lidar com páginas dinâmicas e Pandas para tratamento e estruturação dos dados.",
+    "impacto": "Economia significativa de tempo operacional. Redução do risco de abrir vagas com salários fora do padrão de mercado. Melhoria na taxa de adesão às vagas. Suporte direto à tomada de decisão de RH e Financeiro. Agilidade na pesquisa salarial.",
+    "metricas": {
+        "cargos": "100+",
+        "execucao": "Manual e sob demanda",
+        "usuarios": "RH, Gestão Financeira"
+    },
+    "desafios": "Primeiro contato prático com web scraping. Uso de Selenium para lidar com páginas dinâmicas. Estruturação e tratamento de dados coletados. Entendimento de limitações técnicas de fontes externas.",
+    "imagens": ["/projects/scraping-hero.png"],
+    "video": "https://www.youtube.com/embed/KJU7EnywKdM",
+    "status": "producao-mock"
+    }
+]
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfólio — Home</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0b0f14;
+  --bg-soft:#11161c;
+  --card:#0f141a;
+  --text:#e6edf3;
+  --muted:#9aa4ad;
+  --accent:#00f0ff;
+  --accent2:#7a5cff;
+  --border:#1e2630;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--text);line-height:1.5}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+.container{width:min(1200px,92%);margin:auto}
+
+/* NAVBAR */
+header{
+  position:fixed;top:0;width:100%;z-index:1000;
+  backdrop-filter: blur(8px);
+  transition:background .25s, border .25s;
+}
+header.scrolled{background:rgba(11,15,20,.85);border-bottom:1px solid var(--border)}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;height:70px;
+}
+.logo{font-weight:600;letter-spacing:.5px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.95rem}
+.nav-links a:hover{color:var(--text)}
+.btn{
+  padding:10px 18px;border-radius:10px;border:1px solid var(--border);
+  transition:.25s;display:inline-block;font-size:.9rem
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#001014;border:none}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 18px rgba(0,240,255,.35)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;align-items:center;padding-top:70px}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.hero h1{font-size:2.6rem;font-weight:700;margin-bottom:18px}
+.hero p{color:var(--muted);margin-bottom:28px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+
+.diagram{
+  border:1px solid var(--border);border-radius:18px;padding:28px;background:var(--card);
+  position:relative;overflow:hidden
+}
+.flow{display:flex;flex-direction:column;gap:16px;font-size:.95rem}
+.node{padding:12px 14px;border-radius:10px;background:#0b1016;border:1px solid var(--border)}
+.arrow{text-align:center;color:var(--accent)}
+.pulse{
+  position:absolute;inset:-50%;background:radial-gradient(circle,rgba(0,240,255,.15),transparent 60%);
+  animation:pulse 6s linear infinite;pointer-events:none
+}
+@keyframes pulse{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+/* SOCIAL PROOF */
+.social{background:var(--bg-soft);padding:60px 0;text-align:center}
+.badges{margin-top:24px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.badge{border:1px solid var(--border);padding:8px 14px;border-radius:999px;color:var(--muted);font-size:.85rem}
+
+/* PROJECTS */
+.section{padding:80px 0}
+.section h2{text-align:center;margin-bottom:12px}
+.section .subtitle{text-align:center;color:var(--muted);margin-bottom:36px}
+.filters{display:flex;gap:12px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.filter-btn{padding:8px 14px;border-radius:999px;border:1px solid var(--border);color:var(--muted);cursor:pointer}
+.filter-btn.active,.filter-btn:hover{color:var(--accent);border-color:var(--accent)}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;
+  transition:.25s;display:flex;flex-direction:column
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 0 22px rgba(0,240,255,.15)}
+.card-img{aspect-ratio:16/9;background:linear-gradient(120deg,#1b2430,#0e151c)}
+.card-body{padding:20px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:1.15rem}
+.card p{color:var(--muted);font-size:.9rem}
+.stack{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.stack span{font-size:.75rem;padding:4px 8px;border:1px solid var(--border);border-radius:6px;color:var(--muted)}
+.card a{margin-top:14px;color:var(--accent);font-size:.9rem}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about .box{border:1px solid var(--border);background:var(--card);padding:28px;border-radius:18px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.skill{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px}
+.skill h4{margin-bottom:12px}
+.skill ul{list-style:none;color:var(--muted);display:flex;flex-direction:column;gap:6px;font-size:.9rem}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,#0d151c,#0b0f14);border-top:1px solid var(--border);text-align:center;padding:80px 0}
+.cta h2{margin-bottom:10px}
+.cta p{color:var(--muted);margin-bottom:26px}
+.cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.form{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.form input,.form textarea{background:#0a0e13;border:1px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text)}
+.form textarea{min-width:260px;min-height:90px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--muted);font-size:.85rem}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .hero-grid,.about{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <div class="logo">Heros Dinão</div>
+    <nav class="nav-links">
+      <a href="#projects">Projetos</a>
+      <a href="#about">Sobre</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contato</a>
+      <a class="btn btn-primary" href="#contact">Falar comigo</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Transformo processos manuais e dados desorganizados em sistemas automáticos de decisão.</h1>
+      <p>Automação, Business Intelligence e Engenharia de Dados aplicados a problemas reais de negócio.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">Ver projetos</a>
+        <a class="btn btn-outline" href="#contact">Entrar em contato</a>
+      </div>
+    </div>
+
+    <div class="diagram">
+      <div class="pulse"></div>
+      <div class="flow">
+        <div class="node">Banco de dados</div>
+        <div class="arrow">↓</div>
+        <div class="node">Script / Automação</div>
+        <div class="arrow">↓</div>
+        <div class="node">Processamento de dados</div>
+        <div class="arrow">↓</div>
+        <div class="node">Dashboard</div>
+        <div class="arrow">↓</div>
+        <div class="node">Tomada de decisão</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="social">
+  <div class="container">
+    <p>Projetos desenvolvidos para operações reais e áreas estratégicas.</p>
+    <div class="badges">
+      <span class="badge">Business Intelligence</span>
+      <span class="badge">Automação de Processos</span>
+      <span class="badge">Engenharia de Dados</span>
+      <span class="badge">People Analytics</span>
+      <span class="badge">FinOps / Governança de IA</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="container">
+    <h2>Projetos Selecionados</h2>
+    <p class="subtitle">Casos práticos com foco em eficiência operacional e tomada de decisão.</p>
+
+    <div class="filters">
+      <div class="filter-btn active" data-filter="all">Todos</div>
+      <div class="filter-btn" data-filter="automation">Automação</div>
+      <div class="filter-btn" data-filter="bi">BI</div>
+      <div class="filter-btn" data-filter="data">Data Engineering</div>
+    </div>
+
+    <div class="grid">
+      <div class="card" data-cat="data">
+        <div class="card-img"></div>
+        <div class="card-body">
+          <h3>Pipeline de Dados Automatizada</h3>
+          <p>Geração automática de dados e integração com campanhas.</p>
+          <div class="stack"><span>Python</span><span>PostgreSQL</span><span>SFTP</span></div>
+          <a href="#">Ver caso completo →</a>
+        </div>
+      </div>
+
+      <div class="card" data-cat="bi">
+        <div class="card-img"></div>
+        <div class="card-body">
+          <h3>Dashboard Financeiro</h3>
+          <p>Análise estratégica de performance empresarial.</p>
+          <div class="stack"><span>Power BI</span><span>DAX</span></div>
+          <a href="#">Ver caso completo →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="container about">
+    <div>
+      <h2>O que eu faço</h2>
+      <p style="color:var(--muted);margin-top:16px">Identifico gargalos operacionais, estruturo dados e automatizo processos para gerar visibilidade e decisões mais rápidas dentro das empresas.</p>
+    </div>
+    <div class="box">Ilustração técnica / mock visual</div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="container skills-grid">
+    <div class="skill"><h4>Data & BI</h4><ul><li>Power BI</li><li>SQL</li><li>Modelagem</li></ul></div>
+    <div class="skill"><h4>Automação</h4><ul><li>Python</li><li>n8n</li><li>APIs</li></ul></div>
+    <div class="skill"><h4>Engenharia de Dados</h4><ul><li>ETL</li><li>Pipelines</li><li>Integrações</li></ul></div>
+    <div class="skill"><h4>Business</h4><ul><li>KPIs</li><li>Métricas</li><li>Processos</li></ul></div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <div class="container">
+    <h2>Tem um processo manual que ninguém gosta de fazer?</h2>
+    <p>Provavelmente pode ser automatizado.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="#">Enviar e-mail</a>
+      <a class="btn btn-outline" href="#">WhatsApp</a>
+    </div>
+
+    <form class="form">
+      <input placeholder="Nome" />
+      <input placeholder="Email" />
+      <textarea placeholder="Descreva seu problema"></textarea>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© 2026 — Seu Nome</div>
+</footer>
+
+<script>
+// header scroll effect
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{
+  header.classList.toggle('scrolled',window.scrollY>10);
+});
+
+// filter
+const buttons=document.querySelectorAll('.filter-btn');
+const cards=document.querySelectorAll('.card');
+buttons.forEach(btn=>{
+  btn.onclick=()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    cards.forEach(card=>{
+      card.style.display=(f==='all'||card.dataset.cat===f)?'flex':'none';
+    });
+  };
+});
+</script>
+
+</body>
+</html>
