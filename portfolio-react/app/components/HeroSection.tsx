@@ -8,14 +8,17 @@ export function HeroSection() {
     return (
         <section
             id="home"
-            className="min-h-screen bg-linear-to-b from-black via-gray-900 to-black flex items-center justify-center pt-20 relative overflow-hidden"
+            className="min-h-screen bg-linear-to-b from-black via-gray-900 to-black flex items-center justify-center pt-20 relative"
         >
             {/* Particles Background */}
             <ParticlesBackground />
             <div className="max-w-4xl mx-auto px-6 text-center">
                 {/* Título Principal */}
-                <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-                    {t('title')} <span className="text-cyan-500">{t('titleHighlight')}</span>
+                <p className="text-4xl md:text-5xl font-bold text-white mb-2">
+                    {t('title')}
+                </p>
+                <h1 className="text-5xl md:text-7xl font-bold text-cyan-500 mb-6">
+                    {t('titleHighlight')}
                 </h1>
 
                 {/* Subtítulo */}

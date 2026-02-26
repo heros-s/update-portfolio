@@ -26,9 +26,10 @@ export function ParticlesBackground() {
     }[] = []
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
+        const NAVBAR_HEIGHT = 80
         particles.push({
         x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        y: NAVBAR_HEIGHT + Math.random() * (canvas.height - NAVBAR_HEIGHT),
         vx: (Math.random() - 0.5) * 0.6,
         vy: (Math.random() - 0.5) * 0.6,
         radius: Math.random() * 1.5 + 1
@@ -36,8 +37,19 @@ export function ParticlesBackground() {
     }
 
     let animationId: number
+    let isVisible = true
+
+    const observer = new IntersectionObserver(
+        ([entry]) => { isVisible = entry.isIntersecting },
+        { threshold: 0 }
+    )
+    observer.observe(canvas)
 
     function animate() {
+        if (!isVisible) {
+            animationId = requestAnimationFrame(animate)
+            return // pula o desenho mas mantém o loop pronto
+        }
         ctx!.clearRect(0, 0, canvas!.width, canvas!.height)
 
       // linhas de conexão
@@ -83,8 +95,12 @@ export function ParticlesBackground() {
 
     animate()
 
-    return () => cancelAnimationFrame(animationId)
-    }, [])
+    return () => {
+        cancelAnimationFrame(animationId)
+    observer.disconnect()
+    }
+    }, 
+    [])
 
     return (
     <canvas
