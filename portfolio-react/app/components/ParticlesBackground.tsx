@@ -69,10 +69,13 @@ export function ParticlesBackground() {
             if (p.x < 0 || p.x > canvas!.width) p.vx *= -1
             if (p.y < 0 || p.y > canvas!.height) p.vy *= -1
 
+            ctx!.shadowBlur = 8
+            ctx!.shadowColor = 'rgba(6, 182, 212, 0.8)'
             ctx!.beginPath()
             ctx!.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
             ctx!.fillStyle = 'rgba(6, 182, 212, 0.6)'
             ctx!.fill()
+            ctx!.shadowBlur = 0
         })
 
         animationId = requestAnimationFrame(animate)
