@@ -36,9 +36,13 @@ export default function Home() {
 
   return (
     <>
-      <HeroSection />
+      <section id="home">
+        <HeroSection />
+      </section>
       <TechStackCarousel />
-      <AboutSection />
+      <section id="sobre">
+        <AboutSection />
+      </section>
       {/* Seção de Projetos */}
       <section id="projetos" className="bg-zinc-950 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -73,7 +77,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <ContactSection />
+      <section id="contact">
+        <ContactSection />
+      </section>
     </>
   )
 }

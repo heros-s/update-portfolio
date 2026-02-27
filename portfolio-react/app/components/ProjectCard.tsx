@@ -22,7 +22,7 @@ export function ProjectCard({ title, subtitle, categories, slug, image }: Projec
                     <p className="text-sm text-zinc-400 line-clamp-3">{subtitle}</p>
                 </div>
                 
-                <div className="flex gap-2 justify-center flex-wrap py-3 border-t border-zinc-800/50 flex items-center min-h-[48px]">
+                <div className="flex gap-2 justify-center flex-wrap py-3 border-t border-zinc-800/50 items-center min-h-[48px]">
                     {categories.map((cat) => (
                         <span key={cat} className="text-[10px] uppercase tracking-wider text-cyan-400 px-2 py-0.5 bg-cyan-400/10 rounded-full border border-cyan-400/20">
                             {cat}

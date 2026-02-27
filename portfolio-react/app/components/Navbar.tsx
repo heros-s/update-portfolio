@@ -9,6 +9,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 export function Navbar() {
     const t = useTranslations('nav');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
 
     // Impedir scroll do body quando o menu estiver aberto
     useEffect(() => {
@@ -18,6 +19,35 @@ export function Navbar() {
             document.body.style.overflow = 'unset';
         }
     }, [isMenuOpen]);
+
+    useEffect(() => {
+        // Lista dos IDs das tuas seções (tem que bater com o id= no HTML)
+        const sectionIds = ['home', 'projetos', 'sobre', 'contact'];
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    // Quando a seção entrar na tela, atualiza o estado
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                // Considera "visível" quando 40% da seção estiver na tela
+                threshold: 0.4,
+            }
+        );
+
+        // Para cada id, busca o elemento no DOM e começa a observar
+        sectionIds.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+
+        // Cleanup: para de observar quando o componente sai da tela
+        return () => observer.disconnect();
+    }, []);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
