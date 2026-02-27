@@ -26,7 +26,8 @@ export default function Home() {
     subtitle: t(`items.${p.key}.subtitle`),
     categories: p.categorias.map(cat => CATEGORY_MAP[cat] || cat),
     rawCategories: p.categorias,
-    slug: p.slug
+    slug: p.slug,
+    image: p.imagens?.[0] ?? '/projects/placeholder.png'
   }))
 
   const filtered = filter === 'all'
@@ -58,7 +59,7 @@ export default function Home() {
             ))}
           </div>
           {/* Cards Filtrados */}
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {filtered.map(project => (
               <ProjectCard
                 key={project.id}
@@ -66,6 +67,7 @@ export default function Home() {
                 subtitle={project.subtitle}
                 categories={project.categories}
                 slug={project.slug}
+                image={project.image}
               />
             ))}
           </div>
