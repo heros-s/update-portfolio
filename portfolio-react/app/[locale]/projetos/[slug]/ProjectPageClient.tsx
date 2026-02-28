@@ -8,6 +8,7 @@ import { ProjectImpact } from "../../../components/ProjectImpact"
 import { ProjectTechStack } from "../../../components/ProjectTechStack"
 import { ProjectMedia } from "../../../components/ProjectMedia"
 import { useTranslations } from 'next-intl'
+import { PageTransition } from "../../../components/PageTransition"
 
 interface ProjectPageClientProps {
   slug: string
@@ -44,6 +45,7 @@ export function ProjectPageClient({ slug }: ProjectPageClientProps) {
   }
 
   return (
+    <PageTransition>
     <div className="bg-zinc-950 text-white">
       <ProjectHero 
         titulo={project.titulo}
@@ -70,5 +72,6 @@ export function ProjectPageClient({ slug }: ProjectPageClientProps) {
         desafios={tp.raw(`${pKey}.challenges`) as string[]}
       />
     </div>
+    </PageTransition>
   )
 }

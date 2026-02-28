@@ -62,44 +62,32 @@ useEffect(() => {
             {/* Floating Metric Cards — desktop only */}
 
             {/* Top Left */}
-            <div
-                className="hidden lg:block absolute top-[28%] left-[6%]"
-                style={{ animation: 'float 4s ease-in-out infinite' }}
-            >
-                <div className="bg-zinc-900/90 backdrop-blur border border-zinc-700/60 rounded-xl px-5 py-4 w-44">
+            <div className="hidden lg:block absolute top-[28%] left-[6%] animate-float-1">
+                <div className="bg-zinc-900/90 backdrop-blur border border-zinc-700/60 rounded-xl px-5 py-4 w-50">
                     <p className="text-2xl font-bold text-cyan-400">~40h<span className="text-base text-zinc-400">{t('metrics.metric1Unit')}</span></p>
                     <p className="text-xs text-zinc-400 mt-1">{t('metrics.metric1')}</p>
                 </div>
             </div>
 
             {/* Bottom Left */}
-            <div
-                className="hidden lg:block absolute top-[58%] left-[4%]"
-                style={{ animation: 'float 4s ease-in-out infinite 1s' }}
-            >
-                <div className="bg-zinc-900/80 backdrop-blur border border-zinc-700 rounded-xl px-5 py-4 w-44">
+            <div className="hidden lg:block absolute top-[58%] left-[4%] animate-float-2">
+                <div className="bg-zinc-900/80 backdrop-blur border border-zinc-700 rounded-xl px-5 py-4 w-46">
                     <p className="text-2xl font-bold text-cyan-400">+27%</p>
                     <p className="text-xs text-zinc-400 mt-1">{t('metrics.metric2')}</p>
                 </div>
             </div>
 
             {/* Top Right */}
-            <div
-                className="hidden lg:block absolute top-[28%] right-[6%]"
-                style={{ animation: 'float 4s ease-in-out infinite 2s' }}
-            >
-                <div className="bg-zinc-900/80 backdrop-blur border border-zinc-700 rounded-xl px-5 py-4 w-44">
+            <div className="hidden lg:block absolute top-[28%] right-[6%] animate-float-3">
+                <div className="bg-zinc-900/80 backdrop-blur border border-zinc-700 rounded-xl px-5 py-4 w-46">
                     <p className="text-2xl font-bold text-cyan-400">150+</p>
                     <p className="text-xs text-zinc-400 mt-1">{t('metrics.metric3')}</p>
                 </div>
             </div>
 
             {/* Bottom Right */}
-            <div
-                className="hidden lg:block absolute top-[58%] right-[4%]"
-                style={{ animation: 'float 4s ease-in-out infinite 3s' }}
-            >
-                <div className="bg-zinc-900/80 backdrop-blur border border-zinc-700 rounded-xl px-5 py-4 w-44">
+            <div className="hidden lg:block absolute top-[58%] right-[4%] animate-float-4">
+                <div className="bg-zinc-900/80 backdrop-blur border border-zinc-700 rounded-xl px-5 py-4 w-40">
                     <p className="text-2xl font-bold text-cyan-400">7</p>
                     <p className="text-xs text-zinc-400 mt-1">{t('metrics.metric4')}</p>
                 </div>

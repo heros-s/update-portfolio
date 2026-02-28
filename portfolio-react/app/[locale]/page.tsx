@@ -8,6 +8,7 @@ import { AboutSection } from '../components/AboutSection'
 import { ContactSection } from '../components/ContactSection'
 import projectsData from "./projetos/data/projects.json"
 import { useTranslations } from 'next-intl';
+import { PageTransition } from '../components/PageTransition';
 
 export default function Home() {
   const t = useTranslations('projects');
@@ -35,6 +36,7 @@ export default function Home() {
     : projects.filter(p => p.rawCategories.includes(filter))
 
   return (
+    <PageTransition>
     <>
         <HeroSection />
       <TechStackCarousel />
@@ -77,5 +79,6 @@ export default function Home() {
         <ContactSection />
       </section>
     </>
+    </PageTransition>
   )
 }
