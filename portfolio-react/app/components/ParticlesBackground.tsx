@@ -14,8 +14,8 @@ export function ParticlesBackground() {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
-    const PARTICLE_COUNT = 80
-    const MAX_DISTANCE = 120
+    const PARTICLE_COUNT = window.innerWidth < 768 ? 40 : 60
+    const MAX_DISTANCE = 100
 
     const particles: {
         x: number
@@ -52,11 +52,9 @@ export function ParticlesBackground() {
         }
         ctx!.clearRect(0, 0, canvas!.width, canvas!.height)
 
-      // linhas de conexão
+        // linhas de conexão
         particles.forEach((p1, i) => {
-            particles.forEach((p2, j) => {
-                if (j <= i) return
-
+            particles.slice(i + 1, i + 8).forEach((p2) => {
                 const dx = p1.x - p2.x
                 const dy = p1.y - p2.y
                 const distance = Math.sqrt(dx * dx + dy * dy)

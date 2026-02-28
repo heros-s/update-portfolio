@@ -50,6 +50,9 @@ export const metadata: Metadata = {
       'en': `${siteUrl}/en`,
       'x-default': `${siteUrl}/pt`,
     }
+  },
+  verification: {
+    google: '2022f5b658c90591',
   }
 }
 

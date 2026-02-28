@@ -44,8 +44,8 @@
     "viewCase": "View full case →",
     "items": {
       "pjt1": {
-        "title": "Overtime Approval Automation",
-        "subtitle": "n8n + Slack workflow reducing 2h/day of manual HR work",
+        "title": "HR Overtime Automation — n8n + Slack",
+        "subtitle": "Eliminated 2h/day of manual HR work with an AI-powered workflow bot",
         "category": "automation",
         "tags": [
           "n8n",
@@ -84,8 +84,8 @@
         "funFact": "This was the first automation project with a persona implemented at the company, using an agent that interacts as a real employee."
       },
       "pjt2": {
-        "title": "Financial Performance Dashboard",
-        "subtitle": "Financial KPIs with analytical modeling replacing manual Excel analysis",
+        "title": "Financial Performance Dashboard — Power BI",
+        "subtitle": "Replaced manual Excel reports with executive-ready KPIs and MoM analysis",
         "category": "bi",
         "tags": [
           "Power BI",
@@ -131,8 +131,8 @@
         "categories": ["BI"]
       },
       "pjt3": {
-        "title": "Automated Data Pipeline for Mailing Campaigns",
-        "subtitle": "Automated ETL reducing execution time by 57% and increasing efficiency by 27%",
+        "title": "Automated Mailing Data Pipeline — Python ETL",
+        "subtitle": "Cut execution time by 57% and boosted campaign efficiency by 27%",
         "category": "dataEngineering",
         "tags": [
           "Python",
@@ -181,8 +181,8 @@
         "categories": ["Automation", "Data Engineering"]
       },
       "pjt4": {
-        "title": "AI Credits Monitoring Dashboard",
-        "subtitle": "FinOps applied to AI predicting credit depletion and avoiding financial surprises",
+        "title": "AI Credits Monitoring Dashboard — FinOps",
+        "subtitle": "Predicts credit depletion weeks in advance, preventing financial surprises",
         "category": "analytics",
         "tags": [
           "Looker Studio",
@@ -225,8 +225,8 @@
         "funFact": "Dashboard created weeks after platform adoption, preventively avoiding future issues."
       },
       "pjt5": {
-        "title": "Employee Experience Dashboard (eNPS)",
-        "subtitle": "People Analytics transforming 200+ manual slides into dynamic analyses",
+        "title": "Employee Experience Dashboard — eNPS",
+        "subtitle": "Replaced 200+ manual slides with dynamic People Analytics insights",
         "category": "bi",
         "tags": [
           "Power BI",
@@ -274,8 +274,8 @@
         "categories": ["BI"]
       },
       "pjt6": {
-        "title": "GHG Emissions Calculation Automation (ESG)",
-        "subtitle": "Google Apps Script automating distance calculation for 150+ employees",
+        "title": "ESG Emissions Calculator — Google Apps Script",
+        "subtitle": "Automated distance calculation for 150+ employees to enable ESG reporting",
         "category": "automation",
         "tags": [
           "JavaScript",
@@ -318,8 +318,8 @@
         "categories": ["Automation"]
       },
       "pjt7": {
-        "title": "Automated Salary Data Collection with Web Scraping",
-        "subtitle": "Selenium + Python collecting benchmarks for 100+ positions automatically",
+        "title": "Salary Benchmarking via Web Scraping — Python",
+        "subtitle": "Collected market salary data for 100+ positions automatically with Selenium",
         "category": "dataEngineering",
         "tags": [
           "Python",
@@ -402,17 +402,17 @@
         "exp1": {
           "title": "Business Analytics — Corporate Intelligence",
           "company": "PGMais • Nov/2025 – Present",
-          "description": "Built strategic dashboards for board-level use, automated processes with n8n and Python, and deployed AI agents integrated with Slack — one of them replaced an entire headcount demand and is now used daily by dozens of employees."
+          "description": "Building strategic dashboards for C-level use, automating workflows with n8n and Python, and deploying AI agents integrated with Slack. One agent replaced an entire headcount demand and is now used daily across the company."
         },
         "exp2": {
           "title": "Business Analytics — Finance (FP&A)",
           "company": "PGMais • May/2025 – Nov/2025",
-          "description": "Financial analyses, performance dashboards and report automation for the finance department. First freelance delivered in parallel: dashboard for the CFO of a major food chain, closed at ~$280 USD."
+          "description": "Financial performance dashboards, report automation and data analysis for the finance department. Delivered a freelance project in parallel: a Power BI dashboard for a CFO, approved on first presentation."
         },
         "exp3": {
           "title": "Control Desk & Data Engineering",
           "company": "PGMais • Jul/2024 – May/2025",
-          "description": "Operational monitoring and first data engineering project: a Python pipeline that fully automated a critical hourly mailing campaign process — built to enable my own area transition without disrupting the team."
+          "description": "Built a Python pipeline that fully automated a critical hourly mailing process — 15-20 min down to ~7 min per cycle, 27% efficiency gain. Designed to enable my own internal transfer without disrupting operations."
         }
       }
     },
@@ -468,14 +468,14 @@
     }
   },
   "contact": {
-    "title": "Have a project in mind or want to explore opportunities?",
-    "subtitle": "I'm open to freelancing and project collaborations. Let's talk about how I can help you or your company.",
+    "title": "Let's build something together — or talk opportunities.",
+    "subtitle": "Open to freelance projects, full-time remote roles, and international opportunities. Drop me a message and I'll get back to you within 24h.",
     "socialPrefix": "Prefer other networks?",
     "success": {
       "title": "Message Sent!",
       "description": "Thanks for getting in touch. I'll get back to you soon.",
       "backToForm": "Back to form"
-    },
+  },
     "form": {
       "name": "Your name",
       "email": "Your email",
