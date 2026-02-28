@@ -29,7 +29,11 @@ export function Navbar() {
                 entries.forEach((entry) => {
                     // Quando a seção entrar na tela, atualiza o estado
                     if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
+                        const id = entry.target.id;
+                        setActiveSection(id);
+                        
+                        // Atualiza o hash na URL sem recarregar a página
+                        window.history.replaceState(null, '', `#${id}`);
                     }
                 });
             },

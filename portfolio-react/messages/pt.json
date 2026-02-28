@@ -358,61 +358,61 @@
     }
   },
   "about": {
-    "title": "Business Analyst & Data Professional",
-    "description": "Experiência sólida em automação, dados e BI. Mais de 1 ano transformando dados em decisões estratégicas.",
+    "title": "Comecei cedo, aprendi rápido e nunca parei.",
+    "description": "Hoje combino análise de dados, automação e inteligência de negócios para transformar processos manuais em sistemas que tomam decisões — com ou sem intervenção humana.",
     "viewProjects": "Ver Projetos",
     "differentiators": {
       "criticalThinking": {
-        "title": "Pensamento Crítico",
-        "description": "Apoio nas tomadas de decisão estratégica com análises profundas"
+          "title": "Visão de negócio antes de código",
+          "description": "Antes de automatizar qualquer coisa, entendo o processo, o impacto e quem é afetado. Isso evita retrabalho e gera soluções que realmente funcionam no mundo real."
       },
       "softSkills": {
-        "title": "Soft Skills Avançadas",
-        "description": "Trabalho diário com diretoria, RH e alta gestão"
+          "title": "Trânsito entre técnico e executivo",
+          "description": "Apresento resultados para diretoria, colaboro com RH e entrego código para sistemas. Essa ponte entre mundos é rara e faz diferença em projetos de alto impacto."
       },
       "solidTech": {
-        "title": "Técnica Sólida",
-        "description": "BI, Programação, IA e Automações Integradas"
+          "title": "Histórico comprovado em produção",
+          "description": "Todos os projetos do portfólio estão ou estiveram em uso real — não são exercícios acadêmicos. Automações rodando, dashboards em uso ativo pela gestão."
       }
     },
     "skills": {
       "automation": {
-        "title": "Automação",
-        "description": "n8n, Python, workflows inteligentes"
+          "title": "Automação & Agentes de IA",
+          "description": "n8n, Python e AI Agents construindo fluxos que eliminam trabalho humano repetitivo e tomam decisões em tempo real."
       },
       "dataBI": {
-        "title": "Data, BI & Analytics",
-        "description": "Power BI, ETL, análise e modelagem"
+          "title": "Data, BI & FP&A",
+          "description": "Power BI, modelagem e análise financeira. Dashboards que vão do dado bruto à decisão executiva sem passar pelo Excel manual."
       },
       "strategyIA": {
-        "title": "Estratégia & IA",
-        "description": "Inteligência corporativa, decisões data-driven"
+          "title": "Engenharia de Dados",
+          "description": "Pipelines ETL, integração de sistemas e automação de fluxos de dados críticos com Python, PostgreSQL e SFTP."
       }
     },
     "experience": {
-      "title": "Jornada Profissional com Dados",
+      "title": "Jornada Profissional",
       "items": {
         "exp1": {
-          "title": "Estagiário de Business Analytics",
-          "company": "Setor de Inteligência Corporativa (5 meses) • PGMais",
-          "description": "Atuo em BI estratégico para múltiplas áreas e alta gestão, criando dashboards e análises corporativas enquanto automatizo processos com n8n, Python e agentes de IA para ganho de eficiência operacional."
+            "title": "Business Analytics — Inteligência Corporativa",
+            "company": "PGMais • nov/2025 – Presente",
+            "description": "Desenvolvimento de dashboards estratégicos para diretoria, automação de processos com n8n e Python, e implementação de agentes de IA integrados ao Slack — um deles substituiu uma demanda inteira de headcount e passou a ser usado diariamente por dezenas de colaboradores."
         },
         "exp2": {
-          "title": "Estagiário de Business Analytics",
-          "company": "Setor Financeiro (5 meses) • PGMais",
-          "description": "Desenvolvi dashboards e análises de FP&A, automatizando processos, consultando bases em SQL e apresentando resultados financeiros e operacionais para stakeholders e diretoria."
+            "title": "Business Analytics — Financeiro (FP&A)",
+            "company": "PGMais • mai/2025 - nov/2025",
+            "description": "Análises financeiras, dashboards de performance e automação de relatórios para a área financeira. Primeiro freelance entregue paralelamente: dashboard para diretora financeira de uma grande rede de alimentação, fechado por R$1.500."
         },
         "exp3": {
-          "title": "Estagiário de Control Desk",
-          "company": "Primeira posição (10 meses) • PGMais",
-          "description": "Atuei no monitoramento operacional e qualidade de atendimento, analisando dados, gerenciando campanhas e sistemas de mensageria, além de documentar e otimizar processos internos."
+            "title": "Control Desk & Engenharia de Dados",
+            "company": "PGMais • jul/2024 – mai/2025",
+            "description": "Monitoramento operacional e primeiro projeto de engenharia de dados: pipeline Python que automatizou completamente um processo horário crítico de campanhas de mailing — construída para viabilizar minha própria transição de área sem prejudicar o setor."
         }
       }
     },
     "education": {
       "title": "Formação Acadêmica",
       "degree": "Bacharelado em Sistemas de Informação",
-      "period": "7º/8º Período • Universidade Positivo",
+      "period": "7º Semestre • Universidade Positivo — Curitiba, PR",
       "progress": "Progresso"
     }
   },

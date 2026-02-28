@@ -3,7 +3,11 @@
 import { useRouter, usePathname } from '../../i18n/navigation'
 import { useLocale } from 'next-intl'
 
-export function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+    activeSection?: string
+}
+
+export function LanguageSwitcher({ activeSection }: LanguageSwitcherProps) {
     const router = useRouter()
     const pathname = usePathname()
     const locale = useLocale()
@@ -12,8 +16,10 @@ export function LanguageSwitcher() {
 
     function handleToggle() {
         const nextLocale = isPT ? 'en' : 'pt'
-        router.replace(pathname, { locale: nextLocale })
+        const currentHash = window.location.hash
+        router.replace(pathname + currentHash, { locale: nextLocale })
     }
+
 
     return (
         <button

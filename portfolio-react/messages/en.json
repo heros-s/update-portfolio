@@ -358,61 +358,61 @@
     }
   },
   "about": {
-    "title": "Business Analyst & Data Professional",
-    "description": "Solid experience in automation, data, and BI. Over 1 year transforming data into strategic decisions.",
+    "title": "Started early, learned fast, never stopped.",
+    "description": "I combine data analytics, automation and business intelligence to turn manual processes into decision-making systems — with or without human intervention.",
     "viewProjects": "View Projects",
     "differentiators": {
       "criticalThinking": {
-        "title": "Critical Thinking",
-        "description": "Support for strategic decision-making with deep analysis"
+        "title": "Business thinking before code",
+        "description": "Before automating anything, I understand the process, the impact and who is affected. This avoids rework and generates solutions that actually work in the real world."
       },
       "softSkills": {
-        "title": "Advanced Soft Skills",
-        "description": "Daily collaboration with board, HR, and senior management"
+        "title": "Bridge between technical and executive",
+        "description": "I present results to board members, collaborate with HR and deliver code to systems. This cross-functional fluency is rare and makes a difference in high-impact projects."
       },
       "solidTech": {
-        "title": "Solid Technical Background",
-        "description": "BI, Programming, AI, and Integrated Automations"
+        "title": "Proven track record in production",
+        "description": "Every project in this portfolio is or was in real use — not academic exercises. Automations running, dashboards actively used by management."
       }
     },
     "skills": {
       "automation": {
-        "title": "Automation",
-        "description": "n8n, Python, intelligent workflows"
+        "title": "Automation & AI Agents",
+        "description": "n8n, Python and AI Agents building workflows that eliminate repetitive human work and make real-time decisions."
       },
       "dataBI": {
-        "title": "Data, BI & Analytics",
-        "description": "Power BI, ETL, analysis, and modeling"
+        "title": "Data, BI & FP&A",
+        "description": "Power BI, data modeling and financial analysis. Dashboards that go from raw data to executive decisions without manual Excel."
       },
       "strategyIA": {
-        "title": "Strategy & AI",
-        "description": "Corporate intelligence, data-driven decisions"
+        "title": "Data Engineering",
+        "description": "ETL pipelines, system integration and automation of critical data flows with Python, PostgreSQL and SFTP."
       }
     },
     "experience": {
-      "title": "Professional Data Journey",
+      "title": "Professional Journey",
       "items": {
         "exp1": {
-          "title": "Business Analytics Intern",
-          "company": "Corporate Intelligence Sector (5 months) • PGMais",
-          "description": "Work in strategic BI for multiple areas and senior management, creating dashboards and corporate analyses while automating processes with n8n, Python, and AI agents for operational efficiency gains."
+          "title": "Business Analytics — Corporate Intelligence",
+          "company": "PGMais • Nov/2025 – Present",
+          "description": "Built strategic dashboards for board-level use, automated processes with n8n and Python, and deployed AI agents integrated with Slack — one of them replaced an entire headcount demand and is now used daily by dozens of employees."
         },
         "exp2": {
-          "title": "Business Analytics Intern",
-          "company": "Financial Sector (5 months) • PGMais",
-          "description": "Developed dashboards and FP&A analyses, automating processes, querying SQL databases, and presenting financial and operational results to stakeholders and the board."
+          "title": "Business Analytics — Finance (FP&A)",
+          "company": "PGMais • May/2025 – Nov/2025",
+          "description": "Financial analyses, performance dashboards and report automation for the finance department. First freelance delivered in parallel: dashboard for the CFO of a major food chain, closed at ~$280 USD."
         },
         "exp3": {
-          "title": "Control Desk Intern",
-          "company": "First position (10 months) • PGMais",
-          "description": "Worked in operational monitoring and service quality, analyzing data, managing campaigns and messaging systems, and documenting and optimizing internal processes."
+          "title": "Control Desk & Data Engineering",
+          "company": "PGMais • Jul/2024 – May/2025",
+          "description": "Operational monitoring and first data engineering project: a Python pipeline that fully automated a critical hourly mailing campaign process — built to enable my own area transition without disrupting the team."
         }
       }
     },
     "education": {
       "title": "Academic Background",
-      "degree": "Bachelor of Information Systems",
-      "period": "7th/8th Semester • Universidade Positivo",
+      "degree": "Bachelor's in Information Systems",
+      "period": "7th Semester • Universidade Positivo — Curitiba, Brazil",
       "progress": "Progress"
     }
   },
