@@ -14,8 +14,11 @@ export function ParticlesBackground() {
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
-    const PARTICLE_COUNT = window.innerWidth < 768 ? 40 : 60
+    const isDesktop = window.innerWidth >= 768
+    const PARTICLE_COUNT = isDesktop ? 60 : 40
     const MAX_DISTANCE = 100
+    const LINE_OPACITY_MULTIPLIER = isDesktop ? 0.35 : 0.15
+    const LINE_WIDTH = isDesktop ? 1.0 : 0.8
 
     const particles: {
         x: number
@@ -64,14 +67,14 @@ export function ParticlesBackground() {
                     ctx!.beginPath()
                     ctx!.moveTo(p1.x, p1.y)
                     ctx!.lineTo(p2.x, p2.y)
-                    ctx!.strokeStyle = `rgba(6, 182, 212, ${opacity * 0.15})`
-                    ctx!.lineWidth = 0.8
+                    ctx!.strokeStyle = `rgba(6, 182, 212, ${opacity * LINE_OPACITY_MULTIPLIER})`
+                    ctx!.lineWidth = LINE_WIDTH
                     ctx!.stroke()
                 }
             })
         })
 
-      // pontos
+        // pontos
         particles.forEach(p => {
             p.x += p.vx
             p.y += p.vy
