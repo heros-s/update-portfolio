@@ -8,7 +8,7 @@ export function ContactSection() {
 
     if (state.succeeded) {
         return (
-            <section id="contact" className="py-20 bg-zinc-900/50">
+            <section className="py-20 bg-zinc-900/50">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                         {t('success.title')}
@@ -28,7 +28,7 @@ export function ContactSection() {
     }
 
     return (
-        <section id="contact" className="py-20 bg-zinc-900/50">
+        <section className="py-20 bg-zinc-900/50">
             <div className="max-w-4xl mx-auto px-6">
                 {/* Título Principal */}
                 <h2 className="text-3xl md:text-4xl font-bold text-white text-center">

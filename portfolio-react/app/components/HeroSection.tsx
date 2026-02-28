@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useTranslations } from 'next-intl';
 import { ParticlesBackground } from './ParticlesBackground';
 
@@ -8,12 +8,12 @@ import { ParticlesBackground } from './ParticlesBackground';
 export function HeroSection() {
     const t = useTranslations('hero');
 // Lista de textos que vão rotar
-const phrases = [
+const phrases = useMemo(() => [
     t('typedPhrases.phrase1'),
     t('typedPhrases.phrase2'),
     t('typedPhrases.phrase3'),
     t('typedPhrases.phrase4'),
-]
+], [t])
 
 const [displayText, setDisplayText] = useState('')
 const [phraseIndex, setPhraseIndex] = useState(0)
@@ -51,7 +51,7 @@ useEffect(() => {
     }, isDeleting ? 50 : 80)
 
     return () => clearTimeout(timeout)
-}, [displayText, isDeleting, phraseIndex, isPaused])
+}, [displayText, isDeleting, phraseIndex, isPaused, phrases])
 
 
     return (
