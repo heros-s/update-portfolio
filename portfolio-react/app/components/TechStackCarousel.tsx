@@ -30,7 +30,7 @@ import { useTranslations } from 'next-intl';
 export function TechStackCarousel() {
   const t = useTranslations('techStack');
   const renderStack = (stack: Stack, index: number, prefix: string) => (
-    <div key={`${prefix}-${index}`} className="flex flex-col items-center mx-8 min-w-[80px] group transition-all duration-300 hover:scale-110 cursor-pointer">
+    <div key={`${prefix}-${index}`} className="flex flex-col items-center mx-4 md:mx-8 min-w-[60px] md:min-w-[80px] group transition-all duration-300 hover:scale-110 cursor-pointer">
       <div className="h-12 md:h-16 flex items-center justify-center mb-3">
         {stack.isImage ? (
           <div className="relative w-10 h-10 md:w-12 md:h-12 drop-shadow-lg filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">

@@ -15,14 +15,14 @@
   "hero": {
     "title": "Heros Dinão",
     "titleHighlight": "Analytics & Automation",
-    "subtitle": "Turning messy data into strategic decisions.",
+    "subtitle": "I build automation systems, BI dashboards and data pipelines that eliminate manual work and drive decisions.",
     "ctaPrimary": "View projects",
     "ctaSecondary": "Contact me",
     "typedPhrases": {
-      "phrase1": "Analytics & Automation",
+      "phrase1": "Automation & AI Agents",
       "phrase2": "Strategic Dashboards",
       "phrase3": "Data Pipelines",
-      "phrase4": "Intelligent Decisions"
+      "phrase4": "Decisions at Scale"
     },
     "metrics": {
       "metric1Unit": "/month",
@@ -365,21 +365,21 @@
     }
   },
   "about": {
-    "title": "Started early, learned fast, never stopped.",
-    "description": "I combine data analytics, automation and business intelligence to turn manual processes into decision-making systems — with or without human intervention.",
+    "title": "I turn repetitive processes into systems that run themselves.",
+    "description": "I combine data engineering, business intelligence and AI automation to build solutions that eliminate manual work — from ETL pipelines running hourly to AI agents replacing entire workflows.",
     "viewProjects": "View Projects",
     "differentiators": {
       "criticalThinking": {
-        "title": "Business thinking before code",
-        "description": "Before automating anything, I understand the process, the impact and who is affected. This avoids rework and generates solutions that actually work in the real world."
+        "title": "Business impact before technology",
+        "description": "Before building anything, I understand the process, the stakeholders, and the real cost of the problem. This is what separates useful solutions from impressive-but-useless ones."
       },
       "softSkills": {
-        "title": "Bridge between technical and executive",
-        "description": "I present results to board members, collaborate with HR and deliver code to systems. This cross-functional fluency is rare and makes a difference in high-impact projects."
+        "title": "Fluent across technical and executive layers",
+        "description": "I present results to boards, collaborate with HR and Finance, and ship code to production systems. This cross-functional fluency is rare and makes a direct difference in high-impact projects."
       },
       "solidTech": {
-        "title": "Proven track record in production",
-        "description": "Every project in this portfolio is or was in real use — not academic exercises. Automations running, dashboards actively used by management."
+        "title": "Everything here ran in production",
+        "description": "Every project in this portfolio was or is actively used — not academic exercises. Automations running daily, dashboards used by executives, pipelines processing real business data."
       }
     },
     "skills": {

@@ -42,8 +42,13 @@ body {
   animation-play-state: paused;
 }
 
-.projects-grid > *:last-child:nth-child(3n - 2) {
-    grid-column: 2;
+@media (min-width: 1024px) {
+    .projects-grid {
+        justify-items: center;
+    }
+    .projects-grid > *:last-child:nth-child(3n + 1) {
+        grid-column: 2;
+    }
 }
 
 html {

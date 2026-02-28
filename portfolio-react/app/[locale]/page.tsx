@@ -63,7 +63,7 @@ export default function Home() {
             ))}
           </div>
           {/* Cards Filtrados */}
-          <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+          <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map(project => (
               <ProjectCard
                 key={project.id}
