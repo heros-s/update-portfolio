@@ -19,11 +19,18 @@
     "ctaPrimary": "View projects",
     "ctaSecondary": "Contact me",
     "typedPhrases": {
-    "phrase1": "Analytics & Automation",
-    "phrase2": "Strategic Dashboards",
-    "phrase3": "Data Pipelines",
-    "phrase4": "Intelligent Decisions"
-}
+      "phrase1": "Analytics & Automation",
+      "phrase2": "Strategic Dashboards",
+      "phrase3": "Data Pipelines",
+      "phrase4": "Intelligent Decisions"
+    },
+    "metrics": {
+      "metric1Unit": "/month",
+      "metric1": "hours saved per month",
+      "metric2": "campaign efficiency boost",
+      "metric3": "employees impacted",
+      "metric4": "projects in production"
+    }
   },
   "projects": {
     "sectionTitle": "Selected Projects",

@@ -1,15 +1,16 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { Link } from "../../i18n/navigation";
 import { useTranslations } from 'next-intl';
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { Link, usePathname } from "../../i18n/navigation";
 
 // Estrutura do Navbar
 export function Navbar() {
     const t = useTranslations('nav');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
+    const pathname = usePathname();
 
     // Impedir scroll do body quando o menu estiver aberto
     useEffect(() => {
@@ -51,7 +52,7 @@ export function Navbar() {
 
         // Cleanup: para de observar quando o componente sai da tela
         return () => observer.disconnect();
-    }, []);
+    }, [pathname]);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);

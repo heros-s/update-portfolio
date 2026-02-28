@@ -19,11 +19,18 @@
     "ctaPrimary": "Ver projetos",
     "ctaSecondary": "Entrar em contato",
     "typedPhrases": {
-    "phrase1": "Analytics & Automação",
-    "phrase2": "Dashboards Estratégicos",
-    "phrase3": "Pipelines de Dados",
-    "phrase4": "Decisões Inteligentes"
-}
+      "phrase1": "Analytics & Automação",
+      "phrase2": "Dashboards Estratégicos",
+      "phrase3": "Pipelines de Dados",
+      "phrase4": "Decisões Inteligentes"
+    },
+    "metrics": {
+      "metric1Unit": "/mês",
+      "metric1": "horas economizadas por mês",
+      "metric2": "eficiência em campanhas",
+      "metric3": "colaboradores impactados",
+      "metric4": "projetos em produção"
+    }
   },
   "projects": {
     "sectionTitle": "Projetos Selecionados",
