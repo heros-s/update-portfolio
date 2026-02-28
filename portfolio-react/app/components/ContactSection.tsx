@@ -1,11 +1,33 @@
 "use client";
 import { useForm, ValidationError } from '@formspree/react';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import { ScrollReveal } from './ScrollReveal'
 
 export function ContactSection() {
     const t = useTranslations('contact');
     const [state, handleSubmit] = useForm("mgolaqyj");
+    const [errors, setErrors] = useState<Record<string, string>>({})
 
+    function validate(name: string, value: string) {
+        let message = ''
+
+        if (name === 'name' && value.trim().length < 2) {
+            message = t('form.errors.name')
+        }
+        if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+            message = t('form.errors.email')
+        }
+        if (name === 'subject' && value.trim().length < 3) {
+            message = t('form.errors.subject')
+        }
+        if (name === 'message' && value.trim().length < 10) {
+            message = t('form.errors.message')
+        }
+
+        setErrors(prev => ({ ...prev, [name]: message }))
+    }
+    
     if (state.succeeded) {
         return (
             <section className="py-20 bg-zinc-900/50">
@@ -29,6 +51,7 @@ export function ContactSection() {
 
     return (
         <section className="py-20 bg-zinc-900/50">
+            <ScrollReveal>
             <div className="max-w-4xl mx-auto px-6">
                 {/* Título Principal */}
                 <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
@@ -82,9 +105,11 @@ export function ContactSection() {
                             type="text"
                             name="name"
                             placeholder={t('form.name')}
+                            onBlur={(e) => validate('name', e.target.value)}
                             className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-all"
                             required
                         />
+                        {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
                         <ValidationError 
                             prefix="Name" 
                             field="name"
@@ -98,9 +123,11 @@ export function ContactSection() {
                             type="email"
                             name="email"
                             placeholder={t('form.email')}
+                            onBlur={(e) => validate('email', e.target.value)}
                             className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-all"
                             required
                         />
+                        {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
                         <ValidationError 
                             prefix="Email" 
                             field="email"
@@ -114,19 +141,23 @@ export function ContactSection() {
                             type="text"
                             name="subject"
                             placeholder={t('form.subject')}
+                            onBlur={(e) => validate('subject', e.target.value)}
                             className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-all"
                             required
                         />
+                        {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject}</p>}
                     </div>
                     <div>
                         <textarea
                             id="message"
                             name="message"
                             placeholder={t('form.message')}
+                            onBlur={(e) => validate('message', e.target.value)}
                             rows={5}
                             className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 rounded-lg text-white resize-none focus:outline-none focus:border-cyan-500 transition-all"
                             required
                         ></textarea>
+                        {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
                         <ValidationError 
                             prefix="Message" 
                             field="message"
@@ -148,6 +179,7 @@ export function ContactSection() {
                     </p>
                 </form>
             </div>
+            </ScrollReveal>
         </section>
     );
 }

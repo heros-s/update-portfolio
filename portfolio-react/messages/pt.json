@@ -483,7 +483,13 @@
       "message": "Descreva sua ideia, projeto ou oportunidade",
       "submit": "Enviar mensagem",
       "sending": "Enviando...",
-      "status": "Vou responder em até 24h"
+      "status": "Vou responder em até 24h",
+      "errors": {
+        "name": "Nome deve ter pelo menos 2 caracteres",
+        "email": "E-mail inválido",
+        "subject": "Assunto muito curto",
+        "message": "Mensagem deve ter pelo menos 10 caracteres"
+      }
     }
   },
   "footer": {

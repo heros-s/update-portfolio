@@ -9,6 +9,7 @@ import { ContactSection } from '../components/ContactSection'
 import projectsData from "./projetos/data/projects.json"
 import { useTranslations } from 'next-intl';
 import { PageTransition } from '../components/PageTransition';
+import { ScrollReveal } from '../components/ScrollReveal'
 
 export default function Home() {
   const t = useTranslations('projects');
@@ -41,6 +42,7 @@ export default function Home() {
         <HeroSection />
       <TechStackCarousel />
         <AboutSection />
+      <ScrollReveal>
       {/* Seção de Projetos */}
       <section id="projetos" className="bg-zinc-950 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -75,6 +77,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </ScrollReveal>
       <section id="contact">
         <ContactSection />
       </section>

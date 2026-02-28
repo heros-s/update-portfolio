@@ -2,6 +2,7 @@ import { SiN8N } from "react-icons/si";
 import { BsFileEarmarkBarGraph } from "react-icons/bs";
 import { TrendingUp } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import { ScrollReveal } from "./ScrollReveal";
 
 export function AboutSection() {
   const t = useTranslations('about');
@@ -9,7 +10,7 @@ export function AboutSection() {
   return (
     <section id="sobre" className="bg-zinc-950 text-white min-h-screen py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        
+        <ScrollReveal>
         {/* Intro + Diferencial */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Coluna Esquerda: Intro */}
@@ -29,7 +30,6 @@ export function AboutSection() {
               </a>
             </div>
           </div>
-
           {/* Coluna Direita: Diferenciais */}
           <div className="space-y-4">
             <div className="border-l-4 border-cyan-400 pl-4">
@@ -52,7 +52,9 @@ export function AboutSection() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={0.1}>
         {/* Skills Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           <div className="bg-zinc-900 p-6 rounded-lg border border-zinc-800 hover:border-cyan-400 transition-all">
@@ -79,7 +81,9 @@ export function AboutSection() {
             <p className="text-sm text-zinc-400">{t('skills.strategyIA.description')}</p>
           </div>
         </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={0.2}>
         {/* Timeline de Experiência */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-8">{t('experience.title')}</h2>
@@ -127,7 +131,9 @@ export function AboutSection() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
 
+        <ScrollReveal delay={0.1}>
         {/* Formação Acadêmica */}
         <div className="bg-zinc-900 p-8 rounded-lg border border-zinc-800">
           <h2 className="text-2xl font-bold mb-4">{t('education.title')}</h2>
@@ -147,6 +153,7 @@ export function AboutSection() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   )
