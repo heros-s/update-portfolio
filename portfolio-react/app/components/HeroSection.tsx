@@ -1,9 +1,58 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl';
 import { ParticlesBackground } from './ParticlesBackground';
 
 // Hero Section do portfólio
 export function HeroSection() {
     const t = useTranslations('hero');
+// Lista de textos que vão rotar
+const phrases = [
+    t('typedPhrases.phrase1'),
+    t('typedPhrases.phrase2'),
+    t('typedPhrases.phrase3'),
+    t('typedPhrases.phrase4'),
+]
+
+const [displayText, setDisplayText] = useState('')
+const [phraseIndex, setPhraseIndex] = useState(0)
+const [isDeleting, setIsDeleting] = useState(false)
+const [isPaused, setIsPaused] = useState(false) // <- novo
+
+useEffect(() => {
+    if (isPaused) return
+
+    const currentPhrase = phrases[phraseIndex]
+
+    const timeout = setTimeout(() => {
+        if (!isDeleting) {
+            const next = currentPhrase.slice(0, displayText.length + 1)
+            setDisplayText(next)
+
+            // Terminou de escrever — pausa antes de apagar
+            if (next === currentPhrase) {
+                setIsPaused(true)
+                setTimeout(() => {
+                    setIsPaused(false)
+                    setIsDeleting(true)
+                }, 2000)
+            }
+        } else {
+            const next = currentPhrase.slice(0, displayText.length - 1)
+            setDisplayText(next)
+
+            // Terminou de apagar — troca a frase
+            if (next === '') {
+                setIsDeleting(false)
+                setPhraseIndex((prev) => (prev + 1) % phrases.length)
+            }
+        }
+    }, isDeleting ? 50 : 80)
+
+    return () => clearTimeout(timeout)
+}, [displayText, isDeleting, phraseIndex, isPaused])
+
 
     return (
         <section
@@ -17,8 +66,9 @@ export function HeroSection() {
                 <p className="text-4xl md:text-5xl font-bold text-white mb-2">
                     {t('title')}
                 </p>
-                <h1 className="text-5xl md:text-7xl font-bold text-cyan-500 mb-6">
-                    {t('titleHighlight')}
+                <h1 className="text-5xl md:text-7xl font-bold text-cyan-500 mb-6 min-h-[1.2em]">
+                    {displayText}
+                    <span className="animate-pulse">|</span>
                 </h1>
 
                 {/* Subtítulo */}

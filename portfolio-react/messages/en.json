@@ -17,7 +17,13 @@
     "titleHighlight": "Analytics & Automation",
     "subtitle": "Turning messy data into strategic decisions.",
     "ctaPrimary": "View projects",
-    "ctaSecondary": "Contact me"
+    "ctaSecondary": "Contact me",
+    "typedPhrases": {
+    "phrase1": "Analytics & Automation",
+    "phrase2": "Strategic Dashboards",
+    "phrase3": "Data Pipelines",
+    "phrase4": "Intelligent Decisions"
+}
   },
   "projects": {
     "sectionTitle": "Selected Projects",

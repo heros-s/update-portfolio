@@ -17,7 +17,13 @@
     "titleHighlight": "Analytics & Automação",
     "subtitle": "Transformo dados e processos em decisões estratégicas.",
     "ctaPrimary": "Ver projetos",
-    "ctaSecondary": "Entrar em contato"
+    "ctaSecondary": "Entrar em contato",
+    "typedPhrases": {
+    "phrase1": "Analytics & Automação",
+    "phrase2": "Dashboards Estratégicos",
+    "phrase3": "Pipelines de Dados",
+    "phrase4": "Decisões Inteligentes"
+}
   },
   "projects": {
     "sectionTitle": "Projetos Selecionados",
