@@ -1,12 +1,12 @@
 import { MetadataRoute } from 'next'
 import projectsData from './[locale]/projetos/data/projects.json'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://herosdinao.vercel.app'
 const locales = ['pt', 'en']
 
 export default function sitemap(): MetadataRoute.Sitemap {
     // Rotas estáticas
-    const staticRoutes = ['', '/#projetos', '/#sobre', '/#contact']
+    const staticRoutes = ['']
 
     const staticEntries = locales.flatMap(locale =>
     staticRoutes.map(route => ({
