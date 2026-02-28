@@ -3,11 +3,7 @@
 import { useRouter, usePathname } from '../../i18n/navigation'
 import { useLocale } from 'next-intl'
 
-interface LanguageSwitcherProps {
-    activeSection?: string
-}
-
-export function LanguageSwitcher({ activeSection }: LanguageSwitcherProps) {
+export function LanguageSwitcher() {
     const router = useRouter()
     const pathname = usePathname()
     const locale = useLocale()
