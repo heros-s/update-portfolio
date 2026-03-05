@@ -58,7 +58,7 @@ export function Navbar() {
     const closeMenu = () => setIsMenuOpen(false);
 
     return (
-        <nav className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur">
+        <nav className="fixed top-0 w-full z-50 bg-black">
             <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
 
                 {/* Logo */}

@@ -30,10 +30,10 @@ import { useTranslations } from 'next-intl';
 export function TechStackCarousel() {
   const t = useTranslations('techStack');
   const renderStack = (stack: Stack, index: number, prefix: string) => (
-    <div key={`${prefix}-${index}`} className="flex flex-col items-center mx-4 md:mx-8 min-w-[60px] md:min-w-[80px] group transition-all duration-300 hover:scale-110 cursor-pointer">
+    <div key={`${prefix}-${index}`} className="flex flex-col items-center mx-4 md:mx-8 min-w-[60px] md:min-w-[80px] group transition-all duration-300 md:hover:scale-110 md:cursor-pointer">
       <div className="h-12 md:h-16 flex items-center justify-center mb-3">
         {stack.isImage ? (
-          <div className="relative w-10 h-10 md:w-12 md:h-12 drop-shadow-lg filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 drop-shadow-lg filter grayscale opacity-70 md:group-hover:grayscale-0 md:group-hover:opacity-100 transition-all duration-500">
             <Image 
               src={stack.icon as string} 
               alt={stack.name}
@@ -42,10 +42,10 @@ export function TechStackCarousel() {
             />
           </div>
         ) : (
-          <stack.icon className={`text-4xl md:text-5xl ${stack.color} drop-shadow-lg filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500`} />
+          <stack.icon className={`text-4xl md:text-5xl ${stack.color} drop-shadow-lg filter grayscale opacity-70 md:group-hover:grayscale-0 md:group-hover:opacity-100 transition-all duration-500`} />
         )}
       </div>
-      <span className="text-zinc-500 text-xs md:text-sm font-medium group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">
+      <span className="text-zinc-500 text-xs md:text-sm font-medium md:group-hover:text-white transition-colors opacity-0 md:group-hover:opacity-100 transform translate-y-2 md:group-hover:translate-y-0 duration-300">
         {stack.name}
       </span>
     </div>

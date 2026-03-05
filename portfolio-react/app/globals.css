@@ -38,8 +38,10 @@ body {
   animation: scroll 30s linear infinite;
 }
 
-.pause-on-hover:hover .animate-scroll {
-  animation-play-state: paused;
+@media (hover: hover) {
+  .pause-on-hover:hover .animate-scroll {
+    animation-play-state: paused;
+  }
 }
 
 @media (min-width: 1024px) {

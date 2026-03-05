@@ -81,7 +81,6 @@ export function ParticlesBackground() {
 
             if (p.x < 0 || p.x > canvas!.width) p.vx *= -1
             if (p.y < 0 || p.y > canvas!.height) p.vy *= -1
-
             ctx!.shadowBlur = 8
             ctx!.shadowColor = 'rgba(6, 182, 212, 0.8)'
             ctx!.beginPath()
