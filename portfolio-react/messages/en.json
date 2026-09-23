@@ -399,9 +399,14 @@
     "experience": {
       "title": "Professional Journey",
       "items": {
+        "exp0": {
+          "title": "Corporate Intelligence Analyst I",
+          "company": "PGMais • Jul/2026 – Present",
+          "description": "Built an n8n automation that monitors client billing against their credit limits. The 80/20 analysis done along the way revealed that many of the highest-billing accounts had no active control at all — something that hadn't been mapped before. I also run year-over-year comparisons of the Cross Sell and New Brands funnels, combining Pipedrive sales data with production data to support the board."
+        },
         "exp1": {
           "title": "Business Analytics — Corporate Intelligence",
-          "company": "PGMais • Nov/2025 – Present",
+          "company": "PGMais • Nov/2025 – Jun/2026",
           "description": "Building strategic dashboards for C-level use, automating workflows with n8n and Python, and deploying AI agents integrated with Slack. One agent replaced an entire headcount demand and is now used daily across the company."
         },
         "exp2": {

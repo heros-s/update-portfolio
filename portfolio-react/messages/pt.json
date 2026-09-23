@@ -399,9 +399,14 @@
     "experience": {
       "title": "Jornada Profissional",
       "items": {
+        "exp0": {
+            "title": "Analista de Inteligência Corporativa I",
+            "company": "PGMais • jul/2026 – Presente",
+            "description": "Automação em n8n que monitora o faturamento dos clientes contra o limite de crédito. A análise 80/20 feita no processo revelou que boa parte das contas de maior faturamento não tinha nenhum controle ativo — algo que não estava mapeado. Também comparo ano a ano os funis de Cross Sell e Novas Marcas, cruzando dados comerciais do Pipedrive com dados de produção para apoiar a diretoria."
+        },
         "exp1": {
             "title": "Business Analytics — Inteligência Corporativa",
-            "company": "PGMais • nov/2025 – Presente",
+            "company": "PGMais • nov/2025 – jun/2026",
             "description": "Desenvolvimento de dashboards estratégicos para diretoria, automação de processos com n8n e Python, e implementação de agentes de IA integrados ao Slack — um deles substituiu uma demanda inteira de headcount e passou a ser usado diariamente por dezenas de colaboradores."
         },
         "exp2": {

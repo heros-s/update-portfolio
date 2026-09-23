@@ -88,6 +88,20 @@ export function AboutSection() {
         <div className="mb-16">
           <h2 className="text-3xl font-bold mb-8">{t('experience.title')}</h2>
           <div className="space-y-6">
+            {/* Item 0 — cargo atual */}
+            <div className="flex gap-4">
+              <div className="w-2 bg-cyan-400 rounded shrink-0"></div>
+              <div>
+                <h3 className="font-bold text-lg">{t('experience.items.exp0.title')}</h3>
+                <p className="text-sm text-zinc-400">
+                  {t('experience.items.exp0.company')}
+                </p>
+                <p className="text-sm text-zinc-300 mt-2">
+                  {t('experience.items.exp0.description')}
+                </p>
+              </div>
+            </div>
+
             {/* Item 1 */}
             <div className="flex gap-4">
               <div className="w-2 bg-cyan-400 rounded shrink-0"></div>
