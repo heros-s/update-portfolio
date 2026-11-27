@@ -122,9 +122,9 @@ Com `prefers-reduced-motion`: sem deslocamento, o log da trajetória aparece com
 
 Não existem prints do processo antigo. O "antes" será **reconstruído** a partir do que cada case descreve, com estas regras:
 
-1. **Sempre rotulado** no cabeçalho do quadro e com nota acima dele: `reconstituição ilustrativa, não é print original`.
+1. **Sempre rotulado** com um selo curto no cabeçalho do quadro: `reconstituição ilustrativa`.
 2. **Feito em HTML/SVG, não em imagem gerada:** fica nítido, leve, acessível e obviamente esquemático (sem fingir ser uma captura).
-3. **Só com fatos do case**, sem inventar número: valores que seriam inventados (nomes, horas, cifras) aparecem tarjados.
+3. **O processo vem do case**; nomes, datas e valores das tabelas são dados simulados genéricos, coerentes entre si, só para ilustrar o formato.
 
 | Projeto | Antes reconstruído |
 |---|---|

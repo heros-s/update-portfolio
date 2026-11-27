@@ -534,7 +534,6 @@
     "projectNotFound": "Project not found",
     "back": "projects",
     "statusShipped": "shipped",
-    "reconstructionNote": "The \"before\" below is a schematic reconstruction based on the process description, not a screenshot of the original system.",
     "meta": {
       "frequency": "frequency",
       "categories": "categories",

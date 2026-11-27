@@ -534,7 +534,6 @@
     "projectNotFound": "Projeto não encontrado",
     "back": "projetos",
     "statusShipped": "entregue",
-    "reconstructionNote": "O \"antes\" abaixo é uma reconstituição esquemática feita a partir da descrição do processo, não um print do sistema original.",
     "meta": {
       "frequency": "frequência",
       "categories": "categorias",
