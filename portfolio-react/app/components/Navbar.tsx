@@ -2,167 +2,114 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from 'next-intl';
+import { MenuIcon } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Link, usePathname } from "../../i18n/navigation";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-// Estrutura do Navbar
+const SECTIONS = [
+    { id: 'projetos', key: 'projects' },
+    { id: 'sobre', key: 'about' },
+] as const
+
 export function Navbar() {
     const t = useTranslations('nav');
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('home');
+    const [menuOpen, setMenuOpen] = useState(false);
     const pathname = usePathname();
 
-    // Impedir scroll do body quando o menu estiver aberto
     useEffect(() => {
-        if (isMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-    }, [isMenuOpen]);
-
-    useEffect(() => {
-        // Lista dos IDs das tuas seções (tem que bater com o id= no HTML)
         const sectionIds = ['home', 'projetos', 'sobre', 'contact'];
 
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
-                    // Quando a seção entrar na tela, atualiza o estado
                     if (entry.isIntersecting) {
                         const id = entry.target.id;
                         setActiveSection(id);
-                        
-                        // Atualiza o hash na URL sem recarregar a página
                         window.history.replaceState(null, '', `#${id}`);
                     }
                 });
             },
-            {
-                // Considera "visível" quando 40% da seção estiver na tela
-                threshold: 0.4,
-            }
+            // Uma linha no meio da tela: funciona para seções de qualquer altura
+            // (a trajetória tem 300vh e nunca chegaria a 40% visível).
+            { rootMargin: '-50% 0px -50% 0px', threshold: 0 }
         );
 
-        // Para cada id, busca o elemento no DOM e começa a observar
         sectionIds.forEach((id) => {
             const el = document.getElementById(id);
             if (el) observer.observe(el);
         });
 
-        // Cleanup: para de observar quando o componente sai da tela
         return () => observer.disconnect();
     }, [pathname]);
 
-    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-    const closeMenu = () => setIsMenuOpen(false);
-
     return (
-        <nav className="fixed top-0 w-full z-50 bg-black">
-            <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-
-                {/* Logo */}
-                <div className="font-bold text-white text-lg">
+        <header className="fixed top-0 z-50 w-full border-b border-border bg-background">
+            <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 md:px-10">
+                <Link href="/#home" className="text-[17px] font-bold">
                     {t('brandName')}
-                </div>
+                </Link>
 
-                {/* Links Desktop */}
-                <div className="hidden md:flex gap-8 items-center">
-                    <Link
-                        href="/#home"
-                        className={`transition-all ${
-                            activeSection === 'home'
-                                ? 'text-cyan-400 font-medium'
-                                : 'text-gray-300 hover:text-white'
-                        }`}
-                    >
-                        {t('home')}
-                    </Link>
-                    <Link
-                        href="/#projetos"
-                        className={`transition-all ${
-                            activeSection === 'projetos'
-                                ? 'text-cyan-400 font-medium'
-                                : 'text-gray-300 hover:text-white'
-                        }`}
-                    >
-                        {t('projects')}
-                    </Link>
-                    <Link
-                        href="/#sobre"
-                        className={`transition-all ${
-                            activeSection === 'sobre'
-                                ? 'text-cyan-400 font-medium'
-                                : 'text-gray-300 hover:text-white'
-                        }`}
-                    >
-                        {t('about')}
-                    </Link>
+                <nav aria-label="Principal" className="hidden items-center gap-8 md:flex">
+                    {SECTIONS.map(({ id, key }) => (
+                        <Link
+                            key={id}
+                            href={`/#${id}`}
+                            aria-current={activeSection === id ? 'location' : undefined}
+                            className={cn(
+                                'text-[15px] transition-colors',
+                                activeSection === id ? 'text-run' : 'text-foreground hover:text-run'
+                            )}
+                        >
+                            {t(key)}
+                        </Link>
+                    ))}
                     <LanguageSwitcher />
-                    <Link
-                    href="/#contact"
-                    className={`px-4 py-2 rounded-lg transition-all font-medium ${
-                        activeSection === 'contact'
-                            ? 'bg-cyan-400 text-black ring-2 ring-cyan-300 ring-offset-2 ring-offset-black'
-                            : 'bg-cyan-500 text-black hover:bg-cyan-400'
-                    }`}
-                    >
+                    <Link href="/#contact" className={cn(buttonVariants(), 'h-9 px-4 text-[15px] font-semibold')}>
                         {t('contact')}
                     </Link>
-                </div>
-
-                {/* Botão Hambúrguer (Mobile) */}
-                <button 
-                    onClick={toggleMenu}
-                    className="md:hidden flex text-white text-2xl hover:text-cyan-400 transition-all focus:outline-none"
-                    aria-label={isMenuOpen ? t('closeMenu') : t('openMenu')}
-                >
-                    {isMenuOpen ? '\u2715' : '\u2630'}
-                </button>
-            </div>
-
-            {/* Overlay Mobile */}
-            {isMenuOpen && (
-                <div 
-                    className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden transition-all duration-300"
-                    onClick={closeMenu}
-                />
-            )}
-
-            {/* Menu Lateral Mobile */}
-            <div className={`fixed top-0 right-0 h-screen w-64 bg-zinc-950 border-l border-zinc-800 z-50 transform transition-all duration-300 ease-in-out md:hidden flex flex-col ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-                {/* Header do Menu */}
-                <div className="flex justify-between items-center p-6 border-b border-zinc-800">
-                    <h2 className="text-xl font-bold text-white">{t('menu')}</h2>
-                    <button 
-                        onClick={closeMenu}
-                        className="text-zinc-400 hover:text-cyan-400 transition-all text-2xl"
-                        aria-label={t('closeMenu')}
-                    >
-                        {'\u2715'}
-                    </button>
-                </div>
-
-                {/* Lista de Links */}
-                <nav className="flex flex-col gap-2 p-6">
-                    <Link href="/#home" onClick={closeMenu} className="block px-4 py-3 text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-lg transition-all">{t('home')}</Link>
-                    <Link href="/#projetos" onClick={closeMenu} className="block px-4 py-3 text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-lg transition-all">{t('projects')}</Link>
-                    <Link href="/#sobre" onClick={closeMenu} className="block px-4 py-3 text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-lg transition-all">{t('about')}</Link>
-                    <Link href="/#contact" onClick={closeMenu} className="block px-4 py-3 text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-lg transition-all">{t('contact')}</Link>
                 </nav>
 
-                {/* Footer do Menu (CTA) */}
-                <div className="p-6 border-t border-zinc-800 mt-auto flex flex-col gap-3">
-                    <LanguageSwitcher />
-                    <Link 
-                        href="/#contact" 
-                        onClick={closeMenu}
-                        className="block w-full px-4 py-3 bg-cyan-500 text-black font-bold rounded-lg hover:bg-cyan-400 transition-all text-center"
+                <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+                    <SheetTrigger
+                        className="-mr-2 inline-flex size-11 items-center justify-center text-foreground md:hidden"
+                        aria-label={t('openMenu')}
                     >
-                        {t('cta')}
-                    </Link>
-                </div>
+                        <MenuIcon className="size-5" aria-hidden="true" />
+                    </SheetTrigger>
+                    <SheetContent side="right" className="w-[82%] gap-0 border-border bg-background p-0">
+                        <SheetTitle className="border-b border-border px-6 py-5 text-[15px] font-bold">
+                            {t('menu')}
+                        </SheetTitle>
+                        <nav aria-label="Principal" className="flex flex-col px-6 py-2">
+                            {[{ id: 'home', key: 'home' } as const, ...SECTIONS, { id: 'contact', key: 'contact' } as const].map(({ id, key }) => (
+                                <SheetClose
+                                    key={id}
+                                    render={<Link href={`/#${id}`} />}
+                                    className={cn(
+                                        'border-b border-border py-4 text-xl font-semibold',
+                                        activeSection === id ? 'text-run' : 'text-foreground'
+                                    )}
+                                >
+                                    {t(key)}
+                                </SheetClose>
+                            ))}
+                        </nav>
+                        <div className="mt-auto flex items-center justify-between border-t border-border px-6 py-4">
+                            <LanguageSwitcher />
+                            <SheetClose
+                                render={<Link href="/#contact" />}
+                                className={cn(buttonVariants(), 'h-11 px-5 text-[15px] font-semibold')}
+                            >
+                                {t('cta')}
+                            </SheetClose>
+                        </div>
+                    </SheetContent>
+                </Sheet>
             </div>
-        </nav>
+        </header>
     )
 }

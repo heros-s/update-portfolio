@@ -13,28 +13,31 @@
     "brandName": "Heros Dinão"
   },
   "hero": {
-    "title": "Heros Dinão",
-    "titleHighlight": "Analytics & Automação",
-    "subtitle": "Transformo dados e processos em decisões estratégicas.",
+    "status": "disponível para freelances",
+    "shipped": "7 projetos entregues desde jul/2024",
+    "headline": "Heros Dinão automatiza o trabalho que ninguém deveria fazer à mão.",
+    "subtitle": "Business Analytics & Automação em Curitiba. Fluxos em n8n e Python, dashboards em Power BI e agentes de IA no Slack.",
     "ctaPrimary": "Ver projetos",
     "ctaSecondary": "Entrar em contato",
-    "typedPhrases": {
-      "phrase1": "Analytics & Automação",
-      "phrase2": "Dashboards Estratégicos",
-      "phrase3": "Pipelines de Dados",
-      "phrase4": "Decisões Inteligentes"
-    },
+    "metricsLabel": "Resultados em produção",
     "metrics": {
       "metric1Unit": "/mês",
-      "metric1": "horas economizadas por mês",
-      "metric2": "eficiência em campanhas",
-      "metric3": "colaboradores impactados",
-      "metric4": "projetos em produção"
-    }
+      "metric1": "horas devolvidas ao RH",
+      "metric2": "de eficiência no pipeline de campanhas",
+      "metric3": "colaboradores no cálculo de emissões",
+      "metric4": "projetos entregues"
+    },
+    "stackLabel": "stack"
   },
   "projects": {
-    "sectionTitle": "Projetos Selecionados",
+    "sectionTitle": "Projetos",
     "sectionSubtitle": "Casos práticos focados em eficiência operacional",
+    "countLabel": "{count} execuções",
+    "filterLabel": "filtro",
+    "statusShipped": "entregue",
+    "columns": {"status":"status","flow":"fluxo","beforeAfter":"antes → depois","frequency":"frequência"},
+    "beforeLabel": "antes",
+    "afterLabel": "depois",
     "filters": {
       "all": "Todos",
       "automation": "Automação",
@@ -46,6 +49,7 @@
       "pjt1": {
         "title": "Automação de Aprovação de Horas Extras",
         "subtitle": "Fluxo n8n + Slack reduzindo 2h/dia de trabalho manual do RH",
+        "run": { "before": "~2 h/dia", "after": "automático", "frequency": "diária" },
         "category": "automation",
         "tags": [
           "n8n",
@@ -86,6 +90,7 @@
       "pjt2": {
         "title": "Dashboard Financeiro para Análise de Performance",
         "subtitle": "KPIs financeiros com modelagem analítica substituindo análise manual em Excel",
+        "run": { "before": "CSV bruto do ERP", "after": "painel executivo", "frequency": "mensal" },
         "category": "bi",
         "tags": [
           "Power BI",
@@ -133,6 +138,7 @@
       "pjt3": {
         "title": "Pipeline de Dados Automatizada para Campanhas de Mailing",
         "subtitle": "ETL automatizado reduzindo tempo de execução em 57% e aumentando eficiência em 27%",
+        "run": { "before": "15–20 min", "after": "~7 min", "frequency": "horária", "countPrefix": "~", "countSuffix": " min" },
         "category": "dataEngineering",
         "tags": [
           "Python",
@@ -183,6 +189,7 @@
       "pjt4": {
         "title": "Dashboard de Monitoramento de Créditos de IA",
         "subtitle": "FinOps aplicado a IA prevendo esgotamento de créditos e evitando surpresas financeiras",
+        "run": { "before": "sem controle", "after": "previsão de esgotamento", "frequency": "semanal" },
         "category": "analytics",
         "tags": [
           "Looker Studio",
@@ -227,6 +234,7 @@
       "pjt5": {
         "title": "Dashboard de Experiência do Colaborador (eNPS)",
         "subtitle": "People Analytics transformando 200+ slides manuais em análises dinâmicas",
+        "run": { "before": "200+ slides", "after": "1 painel", "frequency": "quadrimestral", "countSuffix": " painel" },
         "category": "bi",
         "tags": [
           "Power BI",
@@ -276,6 +284,7 @@
       "pjt6": {
         "title": "Automação de Cálculo de Emissões de Gases (ESG)",
         "subtitle": "Google Apps Script automatizando cálculo de distância para 150+ colaboradores",
+        "run": { "before": "cálculo manual", "after": "150+ trajetos reais", "frequency": "sob demanda" },
         "category": "automation",
         "tags": [
           "JavaScript",
@@ -320,6 +329,7 @@
       "pjt7": {
         "title": "Coleta Automatizada de Dados Salariais com Web Scraping",
         "subtitle": "Selenium + Python coletando benchmarks de 100+ cargos automaticamente",
+        "run": { "before": "pesquisa manual", "after": "100+ cargos", "frequency": "sob demanda" },
         "category": "dataEngineering",
         "tags": [
           "Python",
@@ -367,66 +377,62 @@
   "about": {
     "title": "Comecei cedo, aprendi rápido e nunca parei.",
     "description": "Hoje combino análise de dados, automação e inteligência de negócios para transformar processos manuais em sistemas que tomam decisões — com ou sem intervenção humana.",
-    "viewProjects": "Ver Projetos",
     "differentiators": {
       "criticalThinking": {
-          "title": "Visão de negócio antes de código",
-          "description": "Antes de automatizar qualquer coisa, entendo o processo, o impacto e quem é afetado. Isso evita retrabalho e gera soluções que realmente funcionam no mundo real."
+        "title": "Visão de negócio antes de código",
+        "description": "Antes de automatizar qualquer coisa, entendo o processo, o impacto e quem é afetado. Isso evita retrabalho e gera soluções que realmente funcionam no mundo real."
       },
       "softSkills": {
-          "title": "Trânsito entre técnico e executivo",
-          "description": "Apresento resultados para diretoria, colaboro com RH e entrego código para sistemas. Essa ponte entre mundos é rara e faz diferença em projetos de alto impacto."
+        "title": "Trânsito entre técnico e executivo",
+        "description": "Apresento resultados para diretoria, colaboro com RH e entrego código para sistemas. Essa ponte entre mundos é rara e faz diferença em projetos de alto impacto."
       },
       "solidTech": {
-          "title": "Histórico comprovado em produção",
-          "description": "Todos os projetos do portfólio estão ou estiveram em uso real — não são exercícios acadêmicos. Automações rodando, dashboards em uso ativo pela gestão."
-      }
-    },
-    "skills": {
-      "automation": {
-          "title": "Automação & Agentes de IA",
-          "description": "n8n, Python e AI Agents construindo fluxos que eliminam trabalho humano repetitivo e tomam decisões em tempo real."
-      },
-      "dataBI": {
-          "title": "Data, BI & FP&A",
-          "description": "Power BI, modelagem e análise financeira. Dashboards que vão do dado bruto à decisão executiva sem passar pelo Excel manual."
-      },
-      "strategyIA": {
-          "title": "Engenharia de Dados",
-          "description": "Pipelines ETL, integração de sistemas e automação de fluxos de dados críticos com Python, PostgreSQL e SFTP."
+        "title": "Histórico comprovado em produção",
+        "description": "Todos os projetos do portfólio estão ou estiveram em uso real — não são exercícios acadêmicos. Automações rodando, dashboards em uso ativo pela gestão."
       }
     },
     "experience": {
       "title": "Jornada Profissional",
       "items": {
         "exp0": {
-            "title": "Analista de Inteligência Corporativa I",
-            "company": "PGMais • jul/2026 – Presente",
-            "description": "Automação em n8n que monitora o faturamento dos clientes contra o limite de crédito. A análise 80/20 feita no processo revelou que boa parte das contas de maior faturamento não tinha nenhum controle ativo — algo que não estava mapeado. Também comparo ano a ano os funis de Cross Sell e Novas Marcas, cruzando dados comerciais do Pipedrive com dados de produção para apoiar a diretoria."
+          "title": "Analista de Inteligência Corporativa I",
+          "company": "PGMais • jul/2026 – Presente",
+          "description": "Automação em n8n que monitora o faturamento dos clientes contra o limite de crédito. A análise 80/20 feita no processo revelou que boa parte das contas de maior faturamento não tinha nenhum controle ativo — algo que não estava mapeado. Também comparo ano a ano os funis de Cross Sell e Novas Marcas, cruzando dados comerciais do Pipedrive com dados de produção para apoiar a diretoria."
         },
         "exp1": {
-            "title": "Business Analytics — Inteligência Corporativa",
-            "company": "PGMais • nov/2025 – jun/2026",
-            "description": "Desenvolvimento de dashboards estratégicos para diretoria, automação de processos com n8n e Python, e implementação de agentes de IA integrados ao Slack — um deles substituiu uma demanda inteira de headcount e passou a ser usado diariamente por dezenas de colaboradores."
+          "title": "Business Analytics — Inteligência Corporativa",
+          "company": "PGMais • nov/2025 – jun/2026",
+          "description": "Desenvolvimento de dashboards estratégicos para diretoria, automação de processos com n8n e Python, e implementação de agentes de IA integrados ao Slack — um deles substituiu uma demanda inteira de headcount e passou a ser usado diariamente por dezenas de colaboradores."
         },
         "exp2": {
-            "title": "Business Analytics — Financeiro (FP&A)",
-            "company": "PGMais • mai/2025 - nov/2025",
-            "description": "Análises financeiras, dashboards de performance e automação de relatórios para a área financeira. Primeiro freelance entregue paralelamente: dashboard para diretora financeira de uma grande rede de alimentação, fechado por R$1.500."
+          "title": "Business Analytics — Financeiro (FP&A)",
+          "company": "PGMais • mai/2025 - nov/2025",
+          "description": "Análises financeiras, dashboards de performance e automação de relatórios para a área financeira. Primeiro freelance entregue paralelamente: dashboard para diretora financeira de uma grande rede de alimentação, fechado por R$1.500."
         },
         "exp3": {
-            "title": "Control Desk & Engenharia de Dados",
-            "company": "PGMais • jul/2024 – mai/2025",
-            "description": "Monitoramento operacional e primeiro projeto de engenharia de dados: pipeline Python que automatizou completamente um processo horário crítico de campanhas de mailing — construída para viabilizar minha própria transição de área sem prejudicar o setor."
+          "title": "Control Desk & Engenharia de Dados",
+          "company": "PGMais • jul/2024 – mai/2025",
+          "description": "Monitoramento operacional e primeiro projeto de engenharia de dados: pipeline Python que automatizou completamente um processo horário crítico de campanhas de mailing — construída para viabilizar minha própria transição de área sem prejudicar o setor."
         }
       }
     },
     "education": {
       "title": "Formação Acadêmica",
       "degree": "Bacharelado em Sistemas de Informação",
-      "period": "7º Semestre • Universidade Positivo — Curitiba, PR",
-      "progress": "Progresso"
-    }
+      "period": "7º Semestre • Universidade Positivo — Curitiba, PR"
+    },
+    "log": {
+      "title": "historico-de-deploys",
+      "runningFor": "em execução há",
+      "durationYears": "{n, plural, one {# ano} other {# anos}}",
+      "durationMonths": "{n, plural, =0 {# meses} one {# mês} other {# meses}}",
+      "and": "e",
+      "statusOk": "sucesso",
+      "statusRunning": "rodando",
+      "nextDeploy": "próximo deploy: Sistemas de Informação, 8º semestre · Universidade Positivo",
+      "scrollHint": "role para executar"
+    },
+    "principlesTitle": "Como eu trabalho"
   },
   "skills": {
     "title": "Skills",
@@ -475,7 +481,6 @@
   "contact": {
     "title": "Tem um projeto em mente ou quer explorar oportunidades?",
     "subtitle": "Estou aberto para freelances e colaborações em projetos. Vamos conversar sobre como posso ajudar você ou sua empresa.",
-    "socialPrefix": "Prefere outras redes?",
     "success": {
       "title": "Mensagem Enviada!",
       "description": "Obrigado pelo contato. Responderei em breve.",
@@ -495,13 +500,14 @@
         "subject": "Assunto muito curto",
         "message": "Mensagem deve ter pelo menos 10 caracteres"
       }
-    }
+    },
+    "panelTitle": "nova-mensagem",
+    "successStatus": "sucesso",
+    "channelsLabel": "ou direto por"
   },
   "footer": {
-    "copyright": "© {year} Heros Dinão. Todos os direitos reservados."
-  },
-  "techStack": {
-    "title": "Tecnologias que utilizo"
+    "uptime": "uptime desde jul/2024",
+    "copyright": "© {year} Heros Dinão"
   },
   "projectPage": {
     "sections": {
@@ -521,11 +527,31 @@
     },
     "media": {
       "clickToEnlarge": "Clique para ampliar",
-      "videoUnavailable": "Vídeo indisponível no momento",
-      "bonusImages": "Fotos Bônus / Detalhes",
-      "viewPhoto": "Ver Foto",
-      "closeZoom": "Fechar zoom"
+      "closeZoom": "Fechar zoom",
+      "video": "vídeo da execução",
+      "image": "Imagem do projeto"
     },
-    "projectNotFound": "Projeto não encontrado"
+    "projectNotFound": "Projeto não encontrado",
+    "back": "projetos",
+    "statusShipped": "entregue",
+    "reconstructionNote": "O \"antes\" abaixo é uma reconstituição esquemática feita a partir da descrição do processo, não um print do sistema original.",
+    "meta": {
+      "frequency": "frequência",
+      "categories": "categorias",
+      "stack": "stack",
+      "beforeAfter": "antes → depois"
+    },
+    "nodes": {
+      "problem": "problema",
+      "solution": "solucao",
+      "details": "detalhes",
+      "impact": "impacto",
+      "learnings": "aprendizados",
+      "note": "nota"
+    },
+    "metrics": "métricas",
+    "figure": "fig.",
+    "nextRun": "próxima execução",
+    "readingProgress": "progresso de leitura"
   }
 }

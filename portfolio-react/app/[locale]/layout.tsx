@@ -1,27 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { MotionProvider } from "../components/MotionProvider";
 import "../globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "../../i18n/routing";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://herosdinao.vercel.app";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Heros Dinão | Business Analytics & Automation",
@@ -46,7 +36,6 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   alternates: {
-    canonical: `${siteUrl}/pt`,
     languages: {
       pt: `${siteUrl}/pt`,
       en: `${siteUrl}/en`,
@@ -57,6 +46,21 @@ export const metadata: Metadata = {
     google: "U1cJ-kqFPhPf9wHAptr3vwCr2CmA8rerGL2tszVIAeY",
   },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    ...baseMetadata,
+    alternates: {
+      ...baseMetadata.alternates,
+      canonical: `${siteUrl}/${locale}`,
+    },
+  };
+}
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -116,13 +120,13 @@ export default async function LocaleLayout({
         }}
       />
 
-      <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
+      <NextIntlClientProvider messages={messages}>
+        <MotionProvider>
           <Navbar />
           <main>{children}</main>
           <Footer />
-        </NextIntlClientProvider>
-      </div>
+        </MotionProvider>
+      </NextIntlClientProvider>
     </>
   );
 }

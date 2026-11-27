@@ -3,13 +3,29 @@ import { useForm, ValidationError } from '@formspree/react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { ScrollReveal } from './ScrollReveal'
+import { Button } from '@/components/ui/button'
+import { Field, FieldError, FieldLabel } from '@/components/ui/field'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+
+type FieldName = 'name' | 'email' | 'subject' | 'message'
+
+const CHANNELS = [
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/heros-dinao' },
+    { label: 'WhatsApp', href: 'https://wa.me/5541987537615' },
+    { label: 'E-mail', href: 'mailto:herosdefreitas@gmail.com' },
+]
+
+// Campo sem caixa: só o fio inferior, que vira âmbar no foco (DESIGN.md §4).
+const controlClass =
+    'h-auto rounded-none border-0 border-b border-border bg-transparent px-0 py-2.5 text-base shadow-none focus-visible:border-run focus-visible:ring-0 aria-invalid:border-fail aria-invalid:ring-0 md:text-base dark:bg-transparent'
 
 export function ContactSection() {
     const t = useTranslations('contact');
-    const [state, handleSubmit] = useForm("mgolaqyj");
-    const [errors, setErrors] = useState<Record<string, string>>({})
+    const [state, handleSubmit, reset] = useForm("mgolaqyj");
+    const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({})
 
-    function validate(name: string, value: string) {
+    function validate(name: FieldName, value: string) {
         let message = ''
 
         if (name === 'name' && value.trim().length < 2) {
@@ -27,159 +43,95 @@ export function ContactSection() {
 
         setErrors(prev => ({ ...prev, [name]: message }))
     }
-    
-    if (state.succeeded) {
-        return (
-            <section className="py-20 bg-zinc-900/50">
-                <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        {t('success.title')}
-                    </h2>
-                    <p className="text-zinc-400 text-lg">
-                        {t('success.description')}
-                    </p>
-                    <button 
-                        onClick={() => window.location.reload()}
-                        className="mt-8 px-6 py-3 bg-zinc-800 text-white rounded-lg hover:bg-zinc-700 transition"
-                    >
-                        {t('success.backToForm')}
-                    </button>
-                </div>
-            </section>
-        );
-    }
+
+    const fieldProps = (name: FieldName) => ({
+        id: name,
+        name,
+        required: true,
+        'aria-invalid': errors[name] ? true : undefined,
+        'aria-describedby': errors[name] ? `${name}-error` : undefined,
+        onBlur: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => validate(name, e.target.value),
+    })
 
     return (
-        <section className="py-20 bg-zinc-900/50">
-            <ScrollReveal>
-            <div className="max-w-4xl mx-auto px-6">
-                {/* Título Principal */}
-                <h2 className="text-3xl md:text-4xl font-bold text-white text-center">
-                    {t('title')}
-                </h2>
-
-                {/* Subtítulo */}
-                <p className="text-zinc-400 text-lg mt-4 text-center">
-                    {t('subtitle')}
-                </p>
-
-                {/* Alternativas Sociais (Sutil) */}
-                <div className="mt-8 flex flex-col items-center gap-4">
-                    <p className="text-zinc-500 text-sm font-medium uppercase tracking-wider">
-                        {t('socialPrefix')}
-                    </p>
-                    <div className="flex gap-8">
-                        {/* LinkedIn */}
-                        <a 
-                            href="https://www.linkedin.com/in/heros-dinao" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-zinc-400 hover:text-cyan-400 transition-all group"
-                        >
-                            <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                            <span className="text-sm font-medium">LinkedIn</span>
-                        </a>
-
-                        {/* WhatsApp */}
-                        <a 
-                            href="https://wa.me/5541987537615" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-zinc-400 hover:text-green-500 transition-all group"
-                        >
-                            <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                            </svg>
-                            <span className="text-sm font-medium">WhatsApp</span>
-                        </a>
+        <div className="border-b border-border py-20 md:py-24">
+            <ScrollReveal className="mx-auto grid max-w-[1200px] gap-10 px-4 md:px-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+                <div className="flex flex-col gap-5">
+                    <h2 className="text-3xl leading-[1.05] font-bold tracking-[-0.02em] text-balance md:text-[44px]">
+                        {t('title')}
+                    </h2>
+                    <p className="max-w-[52ch] text-lg leading-relaxed text-muted-foreground">{t('subtitle')}</p>
+                    <div className="flex flex-col gap-2 pt-2">
+                        <p className="text-sm text-muted-foreground">{t('channelsLabel')}</p>
+                        <ul className="flex flex-wrap gap-x-6 gap-y-2">
+                            {CHANNELS.map((c) => (
+                                <li key={c.label}>
+                                    <a
+                                        href={c.href}
+                                        {...(c.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                                        className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 transition-colors hover:decoration-run"
+                                    >
+                                        {c.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
 
-                {/* Formulário */}
-                <form onSubmit={handleSubmit} className="space-y-4 mt-12">
-                    <div>
-                        <input
-                            id="name"
-                            type="text"
-                            name="name"
-                            placeholder={t('form.name')}
-                            onBlur={(e) => validate('name', e.target.value)}
-                            className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-all"
-                            required
-                        />
-                        {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
-                        <ValidationError 
-                            prefix="Name" 
-                            field="name"
-                            errors={state.errors}
-                            className="text-red-500 text-sm mt-1"
-                        />
+                <div className="border border-border bg-sunken">
+                    <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-border px-5 py-3 font-mono text-[13px] text-muted-foreground">
+                        <span>{t('panelTitle')}</span>
+                        <span>{t('form.status')}</span>
                     </div>
-                    <div>
-                        <input
-                            id="email"
-                            type="email"
-                            name="email"
-                            placeholder={t('form.email')}
-                            onBlur={(e) => validate('email', e.target.value)}
-                            className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-all"
-                            required
-                        />
-                        {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
-                        <ValidationError 
-                            prefix="Email" 
-                            field="email"
-                            errors={state.errors}
-                            className="text-red-500 text-sm mt-1"
-                        />
-                    </div>
-                    <div>
-                        <input
-                            id="subject"
-                            type="text"
-                            name="subject"
-                            placeholder={t('form.subject')}
-                            onBlur={(e) => validate('subject', e.target.value)}
-                            className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 rounded-lg text-white focus:outline-none focus:border-cyan-500 transition-all"
-                            required
-                        />
-                        {errors.subject && <p className="text-red-400 text-sm mt-1">{errors.subject}</p>}
-                    </div>
-                    <div>
-                        <textarea
-                            id="message"
-                            name="message"
-                            placeholder={t('form.message')}
-                            onBlur={(e) => validate('message', e.target.value)}
-                            rows={5}
-                            className="w-full bg-zinc-900 border border-zinc-800 px-4 py-3 rounded-lg text-white resize-none focus:outline-none focus:border-cyan-500 transition-all"
-                            required
-                        ></textarea>
-                        {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message}</p>}
-                        <ValidationError 
-                            prefix="Message" 
-                            field="message"
-                            errors={state.errors}
-                            className="text-red-500 text-sm mt-1"
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        disabled={state.submitting}
-                        className="w-full bg-cyan-500 text-black font-bold py-3 rounded-lg hover:bg-cyan-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        {state.submitting ? t('form.sending') : t('form.submit')}
-                    </button>
-                    
-                    {/* Parágrafo de Status */}
-                    <p className="text-center text-sm text-zinc-500 mt-3">
-                        {t('form.status')}
-                    </p>
-                </form>
-            </div>
+
+                    {state.succeeded ? (
+                        <div className="flex flex-col items-start gap-4 px-5 py-8" role="status">
+                            <p className="font-mono text-[13px] text-ok">● {t('successStatus')}</p>
+                            <h3 className="text-2xl font-bold">{t('success.title')}</h3>
+                            <p className="text-muted-foreground">{t('success.description')}</p>
+                            <Button variant="outline" className="mt-2 h-11 rounded-[2px] px-5" onClick={() => { setErrors({}); reset() }}>
+                                {t('success.backToForm')}
+                            </Button>
+                        </div>
+                    ) : (
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-6 px-5 py-6">
+                            <div className="grid gap-6 md:grid-cols-2">
+                                <Field>
+                                    <FieldLabel htmlFor="name" className="text-sm text-muted-foreground">{t('form.name')}</FieldLabel>
+                                    <Input type="text" autoComplete="name" className={controlClass} {...fieldProps('name')} />
+                                    {errors.name && <FieldError id="name-error" className="text-fail">{errors.name}</FieldError>}
+                                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-sm text-fail" />
+                                </Field>
+                                <Field>
+                                    <FieldLabel htmlFor="email" className="text-sm text-muted-foreground">{t('form.email')}</FieldLabel>
+                                    <Input type="email" autoComplete="email" className={controlClass} {...fieldProps('email')} />
+                                    {errors.email && <FieldError id="email-error" className="text-fail">{errors.email}</FieldError>}
+                                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-sm text-fail" />
+                                </Field>
+                            </div>
+                            <Field>
+                                <FieldLabel htmlFor="subject" className="text-sm text-muted-foreground">{t('form.subject')}</FieldLabel>
+                                <Input type="text" className={controlClass} {...fieldProps('subject')} />
+                                {errors.subject && <FieldError id="subject-error" className="text-fail">{errors.subject}</FieldError>}
+                            </Field>
+                            <Field>
+                                <FieldLabel htmlFor="message" className="text-sm text-muted-foreground">{t('form.message')}</FieldLabel>
+                                <Textarea rows={5} className={`${controlClass} min-h-32 resize-y`} {...fieldProps('message')} />
+                                {errors.message && <FieldError id="message-error" className="text-fail">{errors.message}</FieldError>}
+                                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-sm text-fail" />
+                            </Field>
+                            <Button
+                                type="submit"
+                                disabled={state.submitting}
+                                className="h-11 self-start rounded-[2px] px-6 text-[15px] font-semibold"
+                            >
+                                {state.submitting ? t('form.sending') : t('form.submit')}
+                            </Button>
+                        </form>
+                    )}
+                </div>
             </ScrollReveal>
-        </section>
+        </div>
     );
 }
