@@ -13,28 +13,31 @@
     "brandName": "Heros Dinão"
   },
   "hero": {
-    "title": "Heros Dinão",
-    "titleHighlight": "Analytics & Automation",
-    "subtitle": "I build automation systems, BI dashboards and data pipelines that eliminate manual work and drive decisions.",
+    "status": "available for freelance work",
+    "shipped": "7 projects shipped since Jul 2024",
+    "headline": "Heros Dinão automates the work nobody should be doing by hand.",
+    "subtitle": "Business Analytics & Automation in Curitiba, Brazil. Workflows in n8n and Python, Power BI dashboards and AI agents in Slack.",
     "ctaPrimary": "View projects",
-    "ctaSecondary": "Contact me",
-    "typedPhrases": {
-      "phrase1": "Automation & AI Agents",
-      "phrase2": "Strategic Dashboards",
-      "phrase3": "Data Pipelines",
-      "phrase4": "Decisions at Scale"
-    },
+    "ctaSecondary": "Get in touch",
+    "metricsLabel": "Results in production",
     "metrics": {
       "metric1Unit": "/month",
-      "metric1": "hours saved per month",
-      "metric2": "campaign efficiency boost",
-      "metric3": "employees impacted",
-      "metric4": "projects in production"
-    }
+      "metric1": "hours handed back to HR",
+      "metric2": "efficiency gain in the campaign pipeline",
+      "metric3": "employees covered by the emissions calculation",
+      "metric4": "projects shipped"
+    },
+    "stackLabel": "stack"
   },
   "projects": {
-    "sectionTitle": "Selected Projects",
+    "sectionTitle": "Projects",
     "sectionSubtitle": "Real-world cases focused on operational efficiency",
+    "countLabel": "{count} runs",
+    "filterLabel": "filter",
+    "statusShipped": "shipped",
+    "columns": {"status":"status","flow":"workflow","beforeAfter":"before → after","frequency":"frequency"},
+    "beforeLabel": "before",
+    "afterLabel": "after",
     "filters": {
       "all": "All",
       "automation": "Automation",
@@ -46,6 +49,7 @@
       "pjt1": {
         "title": "HR Overtime Automation — n8n + Slack",
         "subtitle": "Eliminated 2h/day of manual HR work with an AI-powered workflow bot",
+        "run": { "before": "~2 h/day", "after": "automated", "frequency": "daily" },
         "category": "automation",
         "tags": [
           "n8n",
@@ -86,6 +90,7 @@
       "pjt2": {
         "title": "Financial Performance Dashboard — Power BI",
         "subtitle": "Replaced manual Excel reports with executive-ready KPIs and MoM analysis",
+        "run": { "before": "raw ERP CSV", "after": "executive dashboard", "frequency": "monthly" },
         "category": "bi",
         "tags": [
           "Power BI",
@@ -133,6 +138,7 @@
       "pjt3": {
         "title": "Automated Mailing Data Pipeline — Python ETL",
         "subtitle": "Cut execution time by 57% and boosted campaign efficiency by 27%",
+        "run": { "before": "15–20 min", "after": "~7 min", "frequency": "hourly", "countPrefix": "~", "countSuffix": " min" },
         "category": "dataEngineering",
         "tags": [
           "Python",
@@ -183,6 +189,7 @@
       "pjt4": {
         "title": "AI Credits Monitoring Dashboard — FinOps",
         "subtitle": "Predicts credit depletion weeks in advance, preventing financial surprises",
+        "run": { "before": "no tracking", "after": "depletion forecast", "frequency": "weekly" },
         "category": "analytics",
         "tags": [
           "Looker Studio",
@@ -227,6 +234,7 @@
       "pjt5": {
         "title": "Employee Experience Dashboard — eNPS",
         "subtitle": "Replaced 200+ manual slides with dynamic People Analytics insights",
+        "run": { "before": "200+ slides", "after": "1 dashboard", "frequency": "every 4 months", "countSuffix": " dashboard" },
         "category": "bi",
         "tags": [
           "Power BI",
@@ -276,6 +284,7 @@
       "pjt6": {
         "title": "ESG Emissions Calculator — Google Apps Script",
         "subtitle": "Automated distance calculation for 150+ employees to enable ESG reporting",
+        "run": { "before": "manual calculation", "after": "150+ real routes", "frequency": "on demand" },
         "category": "automation",
         "tags": [
           "JavaScript",
@@ -320,6 +329,7 @@
       "pjt7": {
         "title": "Salary Benchmarking via Web Scraping — Python",
         "subtitle": "Collected market salary data for 100+ positions automatically with Selenium",
+        "run": { "before": "manual research", "after": "100+ positions", "frequency": "on demand" },
         "category": "dataEngineering",
         "tags": [
           "Python",
@@ -367,7 +377,6 @@
   "about": {
     "title": "I turn repetitive processes into systems that run themselves.",
     "description": "I combine data engineering, business intelligence and AI automation to build solutions that eliminate manual work — from ETL pipelines running hourly to AI agents replacing entire workflows.",
-    "viewProjects": "View Projects",
     "differentiators": {
       "criticalThinking": {
         "title": "Business impact before technology",
@@ -380,20 +389,6 @@
       "solidTech": {
         "title": "Everything here ran in production",
         "description": "Every project in this portfolio was or is actively used — not academic exercises. Automations running daily, dashboards used by executives, pipelines processing real business data."
-      }
-    },
-    "skills": {
-      "automation": {
-        "title": "Automation & AI Agents",
-        "description": "n8n, Python and AI Agents building workflows that eliminate repetitive human work and make real-time decisions."
-      },
-      "dataBI": {
-        "title": "Data, BI & FP&A",
-        "description": "Power BI, data modeling and financial analysis. Dashboards that go from raw data to executive decisions without manual Excel."
-      },
-      "strategyIA": {
-        "title": "Data Engineering",
-        "description": "ETL pipelines, system integration and automation of critical data flows with Python, PostgreSQL and SFTP."
       }
     },
     "experience": {
@@ -424,9 +419,20 @@
     "education": {
       "title": "Academic Background",
       "degree": "Bachelor's in Information Systems",
-      "period": "7th Semester • Universidade Positivo — Curitiba, Brazil",
-      "progress": "Progress"
-    }
+      "period": "7th Semester • Universidade Positivo — Curitiba, Brazil"
+    },
+    "log": {
+      "title": "deploy-history",
+      "runningFor": "running for",
+      "durationYears": "{n, plural, one {# year} other {# years}}",
+      "durationMonths": "{n, plural, one {# month} other {# months}}",
+      "and": "and",
+      "statusOk": "success",
+      "statusRunning": "running",
+      "nextDeploy": "next deploy: Information Systems, 8th semester · Universidade Positivo",
+      "scrollHint": "scroll to run"
+    },
+    "principlesTitle": "How I work"
   },
   "skills": {
     "title": "Skills",
@@ -475,12 +481,11 @@
   "contact": {
     "title": "Let's build something together — or talk opportunities.",
     "subtitle": "Open to freelance projects, full-time remote roles, and international opportunities. Drop me a message and I'll get back to you within 24h.",
-    "socialPrefix": "Prefer other networks?",
     "success": {
       "title": "Message Sent!",
       "description": "Thanks for getting in touch. I'll get back to you soon.",
       "backToForm": "Back to form"
-  },
+    },
     "form": {
       "name": "Your name",
       "email": "Your email",
@@ -495,13 +500,14 @@
         "subject": "Subject is too short",
         "message": "Message must be at least 10 characters"
       }
-    }
+    },
+    "panelTitle": "new-message",
+    "successStatus": "success",
+    "channelsLabel": "or reach me on"
   },
   "footer": {
-    "copyright": "© {year} Heros Dinão. All rights reserved."
-  },
-  "techStack": {
-    "title": "Technologies I use"
+    "uptime": "uptime since Jul 2024",
+    "copyright": "© {year} Heros Dinão"
   },
   "projectPage": {
     "sections": {
@@ -521,11 +527,31 @@
     },
     "media": {
       "clickToEnlarge": "Click to enlarge",
-      "videoUnavailable": "Video unavailable at the moment",
-      "bonusImages": "Bonus Photos / Details",
-      "viewPhoto": "View Photo",
-      "closeZoom": "Close zoom"
+      "closeZoom": "Close zoom",
+      "video": "run recording",
+      "image": "Project image"
     },
-    "projectNotFound": "Project not found"
+    "projectNotFound": "Project not found",
+    "back": "projects",
+    "statusShipped": "shipped",
+    "reconstructionNote": "The \"before\" below is a schematic reconstruction based on the process description, not a screenshot of the original system.",
+    "meta": {
+      "frequency": "frequency",
+      "categories": "categories",
+      "stack": "stack",
+      "beforeAfter": "before → after"
+    },
+    "nodes": {
+      "problem": "problem",
+      "solution": "solution",
+      "details": "details",
+      "impact": "impact",
+      "learnings": "learnings",
+      "note": "note"
+    },
+    "metrics": "metrics",
+    "figure": "fig.",
+    "nextRun": "next run",
+    "readingProgress": "reading progress"
   }
 }

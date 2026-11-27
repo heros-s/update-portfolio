@@ -2,8 +2,9 @@
 
 import { useRouter, usePathname } from '../../i18n/navigation'
 import { useLocale } from 'next-intl'
+import { cn } from '@/lib/utils'
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ className }: { className?: string }) {
     const router = useRouter()
     const pathname = usePathname()
     const locale = useLocale()
@@ -16,14 +17,19 @@ export function LanguageSwitcher() {
         router.replace(pathname + currentHash, { locale: nextLocale })
     }
 
-
     return (
         <button
+            type="button"
             onClick={handleToggle}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-700 hover:border-cyan-400 transition-all text-sm text-zinc-300 hover:text-white"
+            aria-label={isPT ? 'Switch to English' : 'Mudar para português'}
+            className={cn(
+                'inline-flex min-h-11 items-center gap-1.5 font-mono text-[13px] text-muted-foreground transition-colors hover:text-foreground',
+                className
+            )}
         >
-            <span>{isPT ? '🇧🇷' : '🇺🇸'}</span>
-            <span>{isPT ? 'Português' : 'English'}</span>
+            <span className={cn(isPT && 'text-foreground')}>PT</span>
+            <span aria-hidden="true">/</span>
+            <span className={cn(!isPT && 'text-foreground')}>EN</span>
         </button>
     )
 }

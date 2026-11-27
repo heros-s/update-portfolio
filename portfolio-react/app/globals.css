@@ -1,68 +1,161 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Contrato de design: DESIGN.md (direção B, "Log de execução").
+   Tema único escuro: não há variante clara, então o .dark do shadcn foi removido.
+   avoid-ai-design-ignore: SD2 (escolha do brief: verde só marca status de sucesso, o acento é o âmbar)
+   avoid-ai-design-ignore: C9 (--muted é cor de fundo dos componentes shadcn, não de texto) */
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+  --font-heading: var(--font-plex-sans);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-run: var(--run);
+  --color-ok: var(--ok);
+  --color-fail: var(--fail);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --ease-log: cubic-bezier(0.2, 0, 0, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  color-scheme: dark;
+
+  /* Paleta "Log de execução" */
+  --background: #141614; /* chão: grafite com leve tom verde */
+  --surface: #1d201c; /* linha ativa, hover */
+  --sunken: #0e100e; /* bloco de log */
+  --foreground: #e9e7df; /* texto */
+  --muted-foreground: #9a9c94; /* timestamps, legendas, o "antes" (6.5:1) */
+  --border: #2c302c; /* fios entre linhas */
+  --run: #e8a33d; /* âmbar "rodando": links, foco, ação principal */
+  --ok: #5bc48b; /* só status de sucesso */
+  --fail: #e5675a; /* só erro (validação de formulário) */
+
+  /* Mapeamento para os componentes shadcn */
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--sunken);
+  --popover-foreground: var(--foreground);
+  --primary: var(--run);
+  --primary-foreground: #141614;
+  --secondary: var(--surface);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--surface);
+  --accent: var(--surface);
+  --accent-foreground: var(--foreground);
+  --destructive: var(--fail);
+  --input: var(--border);
+  --ring: var(--run);
+  --chart-1: var(--run);
+  --chart-2: var(--ok);
+  --chart-3: #c9c7bf;
+  --chart-4: var(--muted-foreground);
+  --chart-5: var(--border);
+  --radius: 0.125rem;
+
+  --sidebar: var(--sunken);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--run);
+  --sidebar-primary-foreground: #141614;
+  --sidebar-accent: var(--surface);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--run);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  /* Âncoras (#projetos, #sobre…) param abaixo da navbar fixa de 4rem. */
+  [id] {
+    scroll-margin-top: 4rem;
+  }
+  :focus-visible {
+    outline: 2px solid var(--run);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--run);
+    color: #141614;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
-.animate-scroll {
-  animation: scroll 30s linear infinite;
+/* Status "rodando": pulso lento só no ponto âmbar (DESIGN.md §5). */
+@keyframes pulse-run {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
 }
 
-@media (hover: hover) {
-  .pause-on-hover:hover .animate-scroll {
-    animation-play-state: paused;
+.pulse-run {
+  animation: pulse-run 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-run {
+    animation: none;
   }
 }
-
-@media (min-width: 1024px) {
-    .projects-grid {
-        justify-items: center;
-    }
-    .projects-grid > *:last-child:nth-child(3n + 1) {
-        grid-column: 2;
-    }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-10px); }
-}
-
-.animate-float-1 { animation: float 4s ease-in-out infinite; }
-.animate-float-2 { animation: float 4s ease-in-out infinite 1s; }
-.animate-float-3 { animation: float 4s ease-in-out infinite 2s; }
-.animate-float-4 { animation: float 4s ease-in-out infinite 3s; }

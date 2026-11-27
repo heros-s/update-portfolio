@@ -1,87 +1,114 @@
 // Home Page
-'use client' // Permite utilização de hooks como useState
+'use client'
+import { useState } from "react"
+import { useTranslations } from 'next-intl'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { HeroSection } from "../components/HeroSection"
-import { TechStackCarousel } from "../components/TechStackCarousel"
-import { useState } from "react";
-import { ProjectCard } from '../components/ProjectCard'
-import { AboutSection } from '../components/AboutSection'
+import { Trajetoria } from '../components/Trajetoria'
 import { ContactSection } from '../components/ContactSection'
-import projectsData from "./projetos/data/projects.json"
-import { useTranslations } from 'next-intl';
-import { PageTransition } from '../components/PageTransition';
 import { ScrollReveal } from '../components/ScrollReveal'
+import { ProjectRow, type ProjectRowData } from '../components/ProjectRow'
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
+import projectsData from "./projetos/data/projects.json"
+
+const FILTERS = [
+    { key: 'all', labelKey: 'filters.all' },
+    { key: 'automacao', labelKey: 'filters.automation' },
+    { key: 'bi', labelKey: 'filters.bi' },
+    { key: 'data', labelKey: 'filters.dataEngineering' },
+] as const
+
+type Run = { before: string; after: string; frequency: string; countPrefix?: string; countSuffix?: string }
 
 export default function Home() {
-  const t = useTranslations('projects');
-  const [filter, setFilter] = useState('all')
+    const t = useTranslations('projects')
+    const [filter, setFilter] = useState<string>('all')
+    const [listRef] = useAutoAnimate<HTMLUListElement>({ duration: 250 })
 
-  const CATEGORY_MAP: Record<string, string> = {
-    'all': t('filters.all'),
-    'automacao': t('filters.automation'),
-    'bi': t('filters.bi'),
-    'data': t('filters.dataEngineering')
-  }
+    const projects = projectsData.projetos.map((p) => {
+        const run = t.raw(`items.${p.key}.run`) as Run
+        const contagem = (p as { contagem?: { de: number; para: number } }).contagem
+        const row: ProjectRowData = {
+            slug: p.slug,
+            flow: p.fluxo,
+            title: t(`items.${p.key}.title`),
+            stack: p.tecnologias,
+            statusLabel: t('statusShipped'),
+            before: run.before,
+            after: run.after,
+            frequency: run.frequency,
+            count: contagem
+                ? { from: contagem.de, to: contagem.para, prefix: run.countPrefix, suffix: run.countSuffix }
+                : undefined,
+        }
+        return { id: p.id, categories: p.categorias, row }
+    })
 
-  const projects = projectsData.projetos.map(p => ({
-    id: p.id,
-    title: t(`items.${p.key}.title`),
-    subtitle: t(`items.${p.key}.subtitle`),
-    categories: p.categorias.map(cat => CATEGORY_MAP[cat] || cat),
-    rawCategories: p.categorias,
-    slug: p.slug,
-    image: p.imagens?.[0] ?? '/projects/placeholder.png'
-  }))
+    const filtered = filter === 'all' ? projects : projects.filter((p) => p.categories.includes(filter))
 
-  const filtered = filter === 'all'
-    ? projects
-    : projects.filter(p => p.rawCategories.includes(filter))
+    return (
+        <>
+            <HeroSection />
 
-  return (
-    <PageTransition>
-    <>
-        <HeroSection />
-      <TechStackCarousel />
-        <AboutSection />
-      <ScrollReveal>
-      {/* Seção de Projetos */}
-      <section id="projetos" className="bg-zinc-950 text-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-bold mb-10 text-center">{t('sectionTitle')}</h1>
-          {/* Filtros */}
-          <div className="flex gap-3 mb-10 flex-wrap justify-center">
-            {Object.keys(CATEGORY_MAP).map(catKey => (
-              <button
-                key={catKey}
-                onClick={() => setFilter(catKey)}
-                className={`px-4 py-2 rounded-lg border transition ${filter === catKey
-                  ? 'bg-cyan-500 text-black border-cyan-500'
-                  : 'border-zinc-700 hover:border-cyan-400'
-                  }`}
-              >
-                {CATEGORY_MAP[catKey]}
-              </button>
-            ))}
-          </div>
-          {/* Cards Filtrados */}
-          <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map(project => (
-              <ProjectCard
-                key={project.id}
-                title={project.title}
-                subtitle={project.subtitle}
-                categories={project.categories}
-                slug={project.slug}
-                image={project.image}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-      </ScrollReveal>
-      <section id="contact">
-        <ContactSection />
-      </section>
-    </>
-    </PageTransition>
-  )
+            <section id="projetos" className="border-b border-border py-20 md:py-24">
+                <div className="mx-auto flex max-w-[1200px] flex-col gap-8 px-4 md:px-10">
+                    <ScrollReveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                        <div className="flex flex-col gap-2">
+                            <h2 className="text-3xl font-bold tracking-[-0.02em] md:text-[44px]">{t('sectionTitle')}</h2>
+                            <p className="text-muted-foreground">{t('sectionSubtitle')}</p>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <span id="filtro-label" className="font-mono text-[13px] text-muted-foreground">
+                                {t('filterLabel')}:
+                            </span>
+                            <ToggleGroup
+                                aria-labelledby="filtro-label"
+                                value={[filter]}
+                                onValueChange={(value) => setFilter(value[0] ?? 'all')}
+                                className="flex-wrap"
+                            >
+                                {FILTERS.map((f) => (
+                                    <ToggleGroupItem
+                                        key={f.key}
+                                        value={f.key}
+                                        className="h-11 rounded-[2px] border border-border px-4 font-mono text-[13px] font-normal text-muted-foreground hover:bg-surface hover:text-foreground aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background"
+                                    >
+                                        {t(f.labelKey)}
+                                    </ToggleGroupItem>
+                                ))}
+                            </ToggleGroup>
+                        </div>
+                    </ScrollReveal>
+
+                    <div>
+                        <div
+                            aria-hidden="true"
+                            className="hidden grid-cols-[110px_minmax(0,1fr)_250px_120px] gap-x-6 border-y border-border px-3 py-3 font-mono text-xs text-muted-foreground md:grid"
+                        >
+                            <span>{t('columns.status')}</span>
+                            <span>{t('columns.flow')}</span>
+                            <span>{t('columns.beforeAfter')}</span>
+                            <span>{t('columns.frequency')}</span>
+                        </div>
+                        <ul ref={listRef} className="border-t border-border md:border-t-0">
+                            {filtered.map((p) => (
+                                <li key={p.id}>
+                                    <ProjectRow row={p.row} labels={{ before: t('beforeLabel'), after: t('afterLabel') }} />
+                                </li>
+                            ))}
+                        </ul>
+                        <p className="pt-4 font-mono text-[13px] text-muted-foreground">
+                            {t('countLabel', { count: filtered.length })}
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <Trajetoria />
+
+            <section id="contact">
+                <ContactSection />
+            </section>
+        </>
+    )
 }
