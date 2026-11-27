@@ -53,8 +53,27 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const isEn = locale === "en";
+  // Imagem de compartilhamento por idioma (gerada no visual "log de execução").
+  const ogImage = {
+    url: isEn ? "/og-image-en.png" : "/og-image.png",
+    width: 1200,
+    height: 630,
+    alt: isEn
+      ? "Heros Dinão: I automate the work nobody should be doing by hand."
+      : "Heros Dinão: automatizo o trabalho que ninguém deveria fazer à mão.",
+  };
   return {
     ...baseMetadata,
+    openGraph: {
+      ...baseMetadata.openGraph,
+      locale: isEn ? "en_US" : "pt_BR",
+      images: [ogImage],
+    },
+    twitter: {
+      ...baseMetadata.twitter,
+      images: [ogImage.url],
+    },
     alternates: {
       ...baseMetadata.alternates,
       canonical: `${siteUrl}/${locale}`,
