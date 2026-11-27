@@ -86,7 +86,7 @@ Base 4px; seção 72–88px vertical; container `max-w-[1200px] px-10` (mobile `
 1. **Abertura:** linha de status `● ativo · 7 fluxos entregues` (mono, verde só no ponto), título grande "Heros Dinão automatiza o trabalho que ninguém deveria fazer à mão.", subtítulo com a stack real em texto. Ao carregar, os três blocos entram em cascata (60ms), uma vez. **Saem:** partículas, typewriter, cards flutuantes.
 2. **Faixa de logos: sai.** A stack aparece dentro de cada execução.
 3. **Execuções (projetos):** tabela de linhas `status · fluxo · antes → depois · frequência`. Nome do fluxo em mono (`aprovacao-horas-extras`) com o título humano ao lado. Filtros `ToggleGroup` com rótulo `filtro:` em mono; a lista reordena com **AutoAnimate**. Hover = fundo `surface`. Mobile: cada linha vira bloco empilhado.
-4. **Histórico de deploys (assinatura):** painel fixo descrito acima; os diferenciais ("visão de negócio antes de código" etc.) aparecem como notas de commit em sans abaixo de cada deploy. Formação = linha final `▸ próximo deploy: Sistemas de Informação, 8º semestre`.
+4. **Histórico de deploys (assinatura):** painel fixo descrito acima; os diferenciais ("visão de negócio antes de código" etc.) aparecem como notas de commit em sans abaixo de cada deploy. Formação = linha final `▸ próximo deploy: formatura em Sistemas de Informação · 8º semestre em andamento`.
 5. **Contato:** "Abrir chamado" como metáfora leve: formulário shadcn (`Field`/`Input`/`Textarea`) em bloco `sunken`, mensagem de sucesso como uma execução `● sucesso · resposta em até 24h`. Mantém Formspree e validações (erros em `fail`).
 6. **Rodapé:** uma linha: `uptime desde jul/2024` · LinkedIn · GitHub · PT/EN.
 
@@ -122,9 +122,9 @@ Com `prefers-reduced-motion`: sem deslocamento, o log da trajetória aparece com
 
 Não existem prints do processo antigo. O "antes" será **reconstruído** a partir do que cada case descreve, com estas regras:
 
-1. **Sempre rotulado** no cabeçalho do quadro e com nota acima dele: `reconstituição ilustrativa, não é print original`.
+1. **Sempre rotulado** com um selo curto no cabeçalho do quadro: `reconstituição ilustrativa`.
 2. **Feito em HTML/SVG, não em imagem gerada:** fica nítido, leve, acessível e obviamente esquemático (sem fingir ser uma captura).
-3. **Só com fatos do case**, sem inventar número: valores que seriam inventados (nomes, horas, cifras) aparecem tarjados.
+3. **O processo vem do case**; nomes, datas e valores das tabelas são dados simulados genéricos, coerentes entre si, só para ilustrar o formato.
 
 | Projeto | Antes reconstruído |
 |---|---|

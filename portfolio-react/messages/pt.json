@@ -419,7 +419,7 @@
     "education": {
       "title": "Formação Acadêmica",
       "degree": "Bacharelado em Sistemas de Informação",
-      "period": "7º Semestre • Universidade Positivo — Curitiba, PR"
+      "period": "8º Semestre • Universidade Positivo — Curitiba, PR"
     },
     "log": {
       "title": "historico-de-deploys",
@@ -429,7 +429,7 @@
       "and": "e",
       "statusOk": "sucesso",
       "statusRunning": "rodando",
-      "nextDeploy": "próximo deploy: Sistemas de Informação, 8º semestre · Universidade Positivo",
+      "nextDeploy": "próximo deploy: formatura em Sistemas de Informação · 8º semestre em andamento · Universidade Positivo",
       "scrollHint": "role para executar"
     },
     "principlesTitle": "Como eu trabalho"
@@ -534,7 +534,6 @@
     "projectNotFound": "Projeto não encontrado",
     "back": "projetos",
     "statusShipped": "entregue",
-    "reconstructionNote": "O \"antes\" abaixo é uma reconstituição esquemática feita a partir da descrição do processo, não um print do sistema original.",
     "meta": {
       "frequency": "frequência",
       "categories": "categorias",

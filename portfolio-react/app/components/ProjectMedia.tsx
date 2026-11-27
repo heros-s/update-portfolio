@@ -41,9 +41,13 @@ export function ProjectMedia({ imagens, video, titulo }: ProjectMediaProps) {
                 )}
             </div>
             {rest.length > 0 && (
-                <div className="grid gap-6 md:grid-cols-2">
+                // flex + justify-center: numa quantidade ímpar, a figura que sobra
+                // fica centralizada em vez de deixar um vazio de um lado só.
+                <div className="flex flex-wrap justify-center gap-6">
                     {rest.map((f) => (
-                        <Figure key={f.src} {...f} titulo={titulo} isSvg={isSvg(f.src)} />
+                        <div key={f.src} className="w-full md:w-[calc(50%-0.75rem)]">
+                            <Figure {...f} titulo={titulo} isSvg={isSvg(f.src)} />
+                        </div>
                     ))}
                 </div>
             )}

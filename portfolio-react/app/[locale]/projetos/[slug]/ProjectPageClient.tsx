@@ -109,8 +109,7 @@ export function ProjectPageClient({ slug }: ProjectPageClientProps) {
                     <Node slug={t('nodes.problem')} heading={t('sections.problem')}>
                         <Prose>{tp(`${k}.problem`)}</Prose>
                         {hasReconstrucao(k) && (
-                            <div className="flex flex-col gap-3 pt-2">
-                                <p className="text-sm text-muted-foreground">{t('reconstructionNote')}</p>
+                            <div className="pt-2">
                                 <Reconstrucao projectKey={k} />
                             </div>
                         )}

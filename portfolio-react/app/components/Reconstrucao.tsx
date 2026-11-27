@@ -1,24 +1,19 @@
 'use client'
 
 import { useLocale } from 'next-intl'
-import { cn } from '@/lib/utils'
 
 // "Antes" reconstruído (DESIGN.md §6). Regras: sempre rotulado como reconstituição,
-// feito em HTML (esquemático, nunca imitando um print) e só com fatos do case.
-// Valores que seriam inventados aparecem tarjados.
+// feito em HTML (esquemático) e com o processo descrito no case. Nomes, datas e
+// valores das tabelas são dados simulados genéricos, só para ilustrar o formato.
 
 type Locale = 'pt' | 'en'
 
 const LABEL: Record<Locale, string> = {
-    pt: 'reconstituição ilustrativa, não é print original',
-    en: 'illustrative reconstruction, not an original screenshot',
+    pt: 'reconstituição ilustrativa',
+    en: 'illustrative reconstruction',
 }
 
 const BEFORE: Record<Locale, string> = { pt: 'antes', en: 'before' }
-
-function Redacted({ w = 'w-10' }: { w?: string }) {
-    return <span aria-hidden="true" className={cn('inline-block h-2.5 rounded-[1px] bg-border align-middle', w)} />
-}
 
 function Frame({
     locale,
@@ -65,6 +60,16 @@ function Chain({ steps }: { steps: string[] }) {
 }
 
 // pjt1: relatório de ponto conferido linha a linha (~300 registros/mês, ~2 h/dia).
+// Linhas simuladas.
+const PONTO_ROWS = [
+    { name: 'Ana Souza', date: { pt: '03/11', en: 'Nov 03' }, overtime: '1h20' },
+    { name: 'Bruno Lima', date: { pt: '03/11', en: 'Nov 03' }, overtime: '0h45' },
+    { name: 'Carla Dias', date: { pt: '04/11', en: 'Nov 04' }, overtime: '2h10' },
+    { name: 'Diego Rocha', date: { pt: '04/11', en: 'Nov 04' }, overtime: '1h05' },
+    { name: 'Elisa Prado', date: { pt: '05/11', en: 'Nov 05' }, overtime: '0h30' },
+    { name: 'Fábio Nunes', date: { pt: '05/11', en: 'Nov 05' }, overtime: '1h50' },
+]
+
 function Ponto({ locale }: { locale: Locale }) {
     const c = {
         pt: {
@@ -101,15 +106,11 @@ function Ponto({ locale }: { locale: Locale }) {
                 <tbody>
                     {c.actions.map((a, i) => (
                         <tr key={i}>
-                            <td className="border-b border-border py-2 pr-4">
-                                <Redacted w="w-24" />
+                            <td className="border-b border-border py-2 pr-4">{PONTO_ROWS[i].name}</td>
+                            <td className="border-b border-border py-2 pr-4 text-muted-foreground">
+                                {PONTO_ROWS[i].date[locale]}
                             </td>
-                            <td className="border-b border-border py-2 pr-4">
-                                <Redacted w="w-12" />
-                            </td>
-                            <td className="border-b border-border py-2 pr-4">
-                                <Redacted w="w-8" />
-                            </td>
+                            <td className="border-b border-border py-2 pr-4 tabular-nums">{PONTO_ROWS[i].overtime}</td>
                             <td className="border-b border-border py-2 pr-4 text-muted-foreground">{c.tickets[i]}</td>
                             <td className="border-b border-border py-2 pr-4 text-run">{a}</td>
                         </tr>
@@ -121,7 +122,17 @@ function Ponto({ locale }: { locale: Locale }) {
     )
 }
 
-// pjt2: CSV mensal do ERP, só dados brutos.
+// pjt2: CSV mensal do ERP, só dados brutos. Valores simulados e coerentes entre si
+// (lucro_bruto = receita - cmv; lucro_liquido = lucro_bruto - despesas).
+const CSV_ROWS = [
+    ['2025-01', '1240000.00', '620000.00', '208000.00', '620000.00', '412000.00'],
+    ['2025-02', '1185000.00', '587000.00', '182000.00', '598000.00', '405000.00'],
+    ['2025-03', '1312000.00', '661000.00', '230000.00', '651000.00', '431000.00'],
+    ['2025-04', '1278000.00', '636000.00', '208000.00', '642000.00', '428000.00'],
+    ['2025-05', '1350000.00', '682000.00', '245000.00', '668000.00', '437000.00'],
+    ['2025-06', '1296000.00', '646000.00', '213000.00', '650000.00', '433000.00'],
+]
+
 function CsvErp({ locale }: { locale: Locale }) {
     const c = {
         pt: {
@@ -144,11 +155,11 @@ function CsvErp({ locale }: { locale: Locale }) {
                         <span key={h}>{h}</span>
                     ))}
                 </div>
-                {Array.from({ length: 6 }).map((_, r) => (
-                    <div key={r} className="grid grid-cols-6 gap-3 border-b border-border py-2">
-                        {cols.map((h) => (
-                            <span key={h}>
-                                <Redacted w={h === 'mes' ? 'w-8' : 'w-16'} />
+                {CSV_ROWS.map((row) => (
+                    <div key={row[0]} className="grid grid-cols-6 gap-3 border-b border-border py-2 tabular-nums">
+                        {row.map((v, i) => (
+                            <span key={cols[i]} className={i === 0 ? 'text-muted-foreground' : undefined}>
+                                {v}
                             </span>
                         ))}
                     </div>

@@ -419,7 +419,7 @@
     "education": {
       "title": "Academic Background",
       "degree": "Bachelor's in Information Systems",
-      "period": "7th Semester • Universidade Positivo — Curitiba, Brazil"
+      "period": "8th Semester • Universidade Positivo — Curitiba, Brazil"
     },
     "log": {
       "title": "deploy-history",
@@ -429,7 +429,7 @@
       "and": "and",
       "statusOk": "success",
       "statusRunning": "running",
-      "nextDeploy": "next deploy: Information Systems, 8th semester · Universidade Positivo",
+      "nextDeploy": "next deploy: graduation in Information Systems · 8th semester in progress · Universidade Positivo",
       "scrollHint": "scroll to run"
     },
     "principlesTitle": "How I work"
@@ -534,7 +534,6 @@
     "projectNotFound": "Project not found",
     "back": "projects",
     "statusShipped": "shipped",
-    "reconstructionNote": "The \"before\" below is a schematic reconstruction based on the process description, not a screenshot of the original system.",
     "meta": {
       "frequency": "frequency",
       "categories": "categories",
